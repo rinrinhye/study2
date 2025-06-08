@@ -1,0 +1,35 @@
+.header {
+  padding: 4px 0;
+  border-bottom: 1px solid #d1d5db;
+  margin-bottom: 20px;
+}
+
+.nav {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  flex: 1;
+  text-decoration: none;
+  text-align: center;
+  padding: 8px 20px;
+  border-radius: 8px;
+  white-space: nowrap;
+
+  color: #1f2937; /* text-gray-900 */
+  background-color: #ffffff; /* bg-white */
+  border: 1px solid #d1d5db; /* border-gray-300 */
+  transition: background-color 0.2s ease, border-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover:not(.active) {
+    background-color: #f3f4f6;
+  }
+}
+
+.active {
+  background: #1d4ed8;
+  color: white;
+}
