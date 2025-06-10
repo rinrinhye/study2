@@ -1,42 +1,235 @@
 .tab1 {
-  .header {
-    text-align: center;
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
-    padding: 16px 0;
-  }
+	.header {
+		text-align: center;
+		border-top: 1px solid #eee;
+		border-bottom: 1px solid #eee;
+		padding: 16px 0;
+	}
 
-  .category-slide {
-    padding: 8px 0 0;
-    border-bottom: 1px solid #eee;
+	.box__category {
+		position: relative;
+	}
 
-    .swiper-slide {
-      width: 62px;
-      height: 74px;
-    }
+	.swiper-button-prev,
+	.swiper-button-next {
+		position: absolute;
+		font-size: 40px;
+		top: 50%;
+		transform: translateY(-50%);
+		z-index: 10;
+		display: none;
+		cursor: pointer;
+	}
 
-    a {
-      display: block;
-      text-align: center;
+	.swiper-button-disabled {
+		display: none;
+	}
 
-      &.active {
-        img {
-          border: 2px solid rgb(170, 245, 57);
-        }
-      }
-    }
+	.swiper-button-prev {
+		left: -40px;
+	}
 
-    img {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      margin-bottom: 2px;
-    }
+	.swiper-button-next {
+		right: -40px;
+	}
 
-    span {
-      display: inline-block;
-      font-size: 12px;
-      white-space: nowrap;
-    }
-  }
+	.category-slide {
+		padding: 8px 0 0;
+		border-bottom: 1px solid #eee;
+
+		.swiper-slide {
+			width: 62px;
+			height: 74px;
+		}
+
+		a {
+			display: block;
+			text-align: center;
+
+			&.active {
+				img {
+					border: 2px solid rgb(0, 196, 0);
+				}
+
+				span {
+					color: #00c400;
+				}
+			}
+		}
+
+		img {
+			width: 44px;
+			height: 44px;
+			border-radius: 50%;
+			margin-bottom: 2px;
+		}
+
+		span {
+			display: block;
+			font-size: 12px;
+			white-space: nowrap;
+		}
+	}
+
+	.list__product {
+		padding: 16px 20px;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 8px;
+
+		.is-rank1 {
+			grid-column: span 2;
+			max-width: 70%;
+			justify-self: center;
+		}
+	}
+
+	.box__product {
+		position: relative;
+
+		.box__image {
+			position: relative;
+			border-radius: 8px;
+			overflow: hidden;
+
+			.image {
+				width: 100%;
+				height: auto;
+				object-fit: cover;
+			}
+
+			.rank {
+				position: absolute;
+				top: 0;
+				left: 0;
+				padding: 6px 8px;
+				font-size: 12px;
+				background-color: #00c400;
+				color: white;
+				border-bottom-right-radius: 4px;
+			}
+		}
+
+		.box__product-info {
+			margin-top: 4px;
+		}
+
+		.box__price {
+			.text__coupon {
+				color: #da120d;
+				font-size: 11px;
+
+				+ .text__regular-price {
+					margin-left: 2px;
+				}
+			}
+
+			.text__regular-price {
+				font-size: 11px;
+				color: #888;
+
+				strong {
+					color: inherit;
+				}
+			}
+
+			.box__price--sale {
+				margin: 2px 0 4px;
+
+				&.is-sale {
+					.text__unit,
+					.text__sale-price {
+						color: #da120d;
+					}
+				}
+			}
+
+			.text__rate {
+				color: #da120d;
+				font-size: 13px;
+			}
+
+			.text__sale-price {
+				font-weight: 700;
+			}
+		}
+
+		.box__rating {
+			margin-top: 2px;
+			font-size: 12px;
+
+			img {
+				margin-bottom: -3px;
+			}
+
+			.text__count {
+				color: #666;
+			}
+		}
+
+		.text__name {
+			font-size: 14px;
+			line-height: 20px;
+
+			display: -webkit-box;
+			-webkit-line-clamp: 2; /* 줄 수 */
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		.badge {
+			margin-top: 6px;
+			border-radius: 16px;
+			border: 1px solid #eeeeee;
+			font-size: 12px;
+			width: fit-content;
+			padding: 4px;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.tab1 {
+		.list__product {
+			grid-template-columns: repeat(4, 1fr);
+			max-width: 744px;
+			margin: 0 auto;
+
+			.is-rank1 {
+				grid-column: span 4;
+			}
+		}
+	}
+}
+
+@media (min-width: 1024px) {
+	.tab1 {
+		.box__category {
+			max-width: 952px;
+			margin: 0 auto;
+
+			.swiper-button-prev:not(.swiper-button-disabled),
+			.swiper-button-next:not(.swiper-button-disabled) {
+				display: block;
+			}
+
+			.swiper-slide {
+				width: 68px;
+				height: 100px;
+			}
+
+			img {
+				width: 68px;
+				height: 68px;
+			}
+		}
+
+		.list__product {
+			.is-rank1 {
+				grid-column: 1;
+				max-width: 100%;
+			}
+		}
+	}
 }

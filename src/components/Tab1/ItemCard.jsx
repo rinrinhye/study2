@@ -1,13 +1,46 @@
+import Badge from "./Badge";
+import Price from "./Price";
+import ProductImage from "./ProductImage";
+import StarRate from "./StarRate";
+
 export default function ItemCard({ products }) {
-  console.log(products);
+	console.log(products);
 
-  const { goodsName, price, discountPrice, imageUrl, discountRate } = products;
+	const {
+		goodsCode,
+		goodsName,
+		imageUrl,
+		rank,
+		price,
+		discountPrice,
+		discountRate,
+		hasCoupon,
+		avgStarPoint,
+		reviewCount,
+		lmos,
+	} = products;
 
-  return (
-    <div className="product">
-      <img className="product__image" src={`${imageUrl}/280`} alt="" />
-      {discountRate === 0 ? <div>{price}원</div> : <div></div>}
-      <p className="product__name">{goodsName}</p>
-    </div>
-  );
+	const priceInfo = {
+		hasCoupon,
+		price,
+		discountPrice,
+		discountRate,
+	};
+
+	return (
+		<li
+			className={`box__product${rank === 1 ? " is-rank1" : ""}`}
+			key={goodsCode}
+		>
+			<ProductImage imageUrl={imageUrl} rank={rank} />
+			<div className="box__product-info">
+				<Price {...priceInfo} />
+				<p className="text__name">{goodsName}</p>
+				{avgStarPoint && (
+					<StarRate avgStarPoint={avgStarPoint} reviewCount={reviewCount} />
+				)}
+				{lmos[0] && <Badge lmos={lmos} />}
+			</div>
+		</li>
+	);
 }
