@@ -4,8 +4,6 @@ import ProductImage from "./ProductImage";
 import StarRate from "./StarRate";
 
 export default function ItemCard({ products }) {
-	console.log(products);
-
 	const {
 		goodsCode,
 		goodsName,

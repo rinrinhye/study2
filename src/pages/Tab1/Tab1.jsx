@@ -5,8 +5,8 @@ import { useLocation } from "react-router";
 import ItemCard from "../../components/Tab1/ItemCard";
 
 export default function Tab1() {
-	const [categories, setCategories] = useState([]);
 	const [loading, setLoading] = useState(true);
+	const [categories, setCategories] = useState([]);
 	const [products, setProducts] = useState([]);
 
 	const { search } = useLocation();
