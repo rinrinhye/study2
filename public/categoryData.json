@@ -1,0 +1,436 @@
+{
+  "categoryData": [
+    {
+      "groupCode": "100000000",
+      "groupName": "전체",
+      "imageUrl": "https://pics.gmarket.co.kr/mobile/best/icon__category-total.jpg",
+      "subGroups": [
+        {
+          "groupSubName": "전체"
+        }
+      ]
+    },
+    {
+      "groupCode": "100000006",
+      "groupName": "신선식품",
+      "imageUrl": "https://image.gmarket.co.kr/hanbando/202406/13f6e7ac-1618-48b9-bf42-b15ad567b3f8.png",
+      "subGroups": [
+        {
+          "groupSubName": "전체"
+        },
+        {
+          "groupSubName": "과일/야채",
+          "groupSubCode": "200000042"
+        },
+        {
+          "groupSubName": "쌀/잡곡/견과류",
+          "groupSubCode": "200000039"
+        },
+        {
+          "groupSubName": "축산",
+          "groupSubCode": "200000041"
+        },
+        {
+          "groupSubName": "수산",
+          "groupSubCode": "200000040"
+        },
+        {
+          "groupSubName": "김치/반찬",
+          "groupSubCode": "200000043"
+        }
+      ]
+    },
+    {
+      "groupCode": "100000005",
+      "groupName": "가공식품",
+      "imageUrl": "https://image.gmarket.co.kr/hanbando/202406/71cc3a7a-b9d0-4ab0-a783-dba66c54fd7a.png",
+      "subGroups": [
+        {
+          "groupSubName": "전체"
+        },
+        {
+          "groupSubName": "냉동/간편조리식품",
+          "groupSubCode": "200000036"
+        },
+        {
+          "groupSubName": "건강/다이어트식품",
+          "groupSubCode": "200000037"
+        },
+        {
+          "groupSubName": "과자/간식",
+          "groupSubCode": "200000034"
+        },
+        {
+          "groupSubName": "커피/음료/생수",
+          "groupSubCode": "200000038"
+        },
+        {
+          "groupSubName": "캔/오일/조미료",
+          "groupSubCode": "200000035"
+        }
+      ]
+    },
+    {
+      "groupCode": "100000007",
+      "groupName": "생필품/육아",
+      "imageUrl": "https://image.gmarket.co.kr/hanbando/202406/800f4dad-669a-4163-88db-017bbd329759.png",
+      "subGroups": [
+        {
+          "groupSubName": "전체"
+        },
+        {
+          "groupSubName": "화장지/물티슈",
+          "groupSubCode": "200000045"
+        },
+        {
+          "groupSubName": "세제/일회용품",
+          "groupSubCode": "200001001"
+        },
+        {
+          "groupSubName": "구강/위생용품",
+          "groupSubCode": "200001003"
+        },
+        {
+          "groupSubName": "기저귀/분유/이유식",
+          "groupSubCode": "200006002"
+        },
+        {
+          "groupSubName": "유아동의류/잡화",
+          "groupSubCode": "200006003"
+        },
+        {
+          "groupSubName": "출산/유아용품",
+          "groupSubCode": "200006004"
+        },
+        {
+          "groupSubName": "장난감/완구",
+          "groupSubCode": "200006005"
+        }
+      ]
+    },
+    {
+      "groupCode": "100001001",
+      "groupName": "생활/주방",
+      "imageUrl": "https://image.gmarket.co.kr/hanbando/202406/aa5e6d42-21f7-470a-8d0e-22ead00177e7.png",
+      "subGroups": [
+        {
+          "groupSubName": "전체"
+        },
+        {
+          "groupSubName": "주방용품",
+          "groupSubCode": "200001012"
+        },
+        {
+          "groupSubName": "쿡웨어/식기/용기",
+          "groupSubCode": "200001009"
+        },
+        {
+          "groupSubName": "생활잡화/보안/수납",
+          "groupSubCode": "200001007"
+        },
+        {
+          "groupSubName": "욕실/청소",
+          "groupSubCode": "200001006"
+        },
+        {
+          "groupSubName": "자동차용품",
+          "groupSubCode": "200006006"
+        },
+        {
+          "groupSubName": "공구",
+          "groupSubCode": "200006007"
+        },
+        {
+          "groupSubName": "안전/산업용품",
+          "groupSubCode": "200006008"
+        }
+      ]
+    },
+    {
+      "groupCode": "100000001",
+      "groupName": "패션/잡화",
+      "imageUrl": "https://image.gmarket.co.kr/hanbando/202406/a2c22f3a-a554-4e70-8a5b-f896fa24ed74.jpg",
+      "subGroups": [
+        {
+          "groupSubName": "전체"
+        },
+        {
+          "groupSubName": "여성의류",
+          "groupSubCode": "200000004"
+        },
+        {
+          "groupSubName": "남성의류",
+          "groupSubCode": "200000005"
+        },
+        {
+          "groupSubName": "언더웨어",
+          "groupSubCode": "200000006"
+        },
+        {
+          "groupSubName": "캐주얼의류",
+          "groupSubCode": "200013001"
+        },
+        {
+          "groupSubName": "브랜드잡화/명품",
+          "groupSubCode": "200003001"
+        },
+        {
+          "groupSubName": "신발",
+          "groupSubCode": "200003003"
+        },
+        {
+          "groupSubName": "가방/잡화",
+          "groupSubCode": "200003002"
+        },
+        {
+          "groupSubName": "액세서리",
+          "groupSubCode": "200006001"
+        }
+      ]
+    },
+    {
+      "groupCode": "100000003",
+      "groupName": "뷰티",
+      "imageUrl": "https://image.gmarket.co.kr/hanbando/202406/9b54187c-a468-42be-97a1-9177c42e054b.png",
+      "subGroups": [
+        {
+          "groupSubName": "전체"
+        },
+        {
+          "groupSubName": "스킨케어",
+          "groupSubCode": "200000017"
+        },
+        {
+          "groupSubName": "바디/헤어케어",
+          "groupSubCode": "200014001"
+        },
+        {
+          "groupSubName": "메이크업",
+          "groupSubCode": "200000019"
+        },
+        {
+          "groupSubName": "클렌징/팩/미용소품",
+          "groupSubCode": "200003008"
+        },
+        {
+          "groupSubName": "남성화장품",
+          "groupSubCode": "200000023"
+        }
+      ]
+    },
+    {
+      "groupCode": "100001007",
+      "groupName": "디지털/가전",
+      "imageUrl": "https://image.gmarket.co.kr/hanbando/202406/deac8518-7aac-4a63-bd68-1b276deaf158.png",
+      "subGroups": [
+        {
+          "groupSubName": "전체"
+        },
+        {
+          "groupSubName": "PC/노트북/모니터",
+          "groupSubCode": "200006016"
+        },
+        {
+          "groupSubName": "PC주변기기/프린터",
+          "groupSubCode": "200001045"
+        },
+        {
+          "groupSubName": "영상/주방가전",
+          "groupSubCode": "200001046"
+        },
+        {
+          "groupSubName": "계절가전",
+          "groupSubCode": "200001047"
+        },
+        {
+          "groupSubName": "생활/미용가전",
+          "groupSubCode": "200001048"
+        },
+        {
+          "groupSubName": "모바일/태블릿",
+          "groupSubCode": "200003006"
+        },
+        {
+          "groupSubName": "카메라/게임/음향기기",
+          "groupSubCode": "200003007"
+        }
+      ]
+    },
+    {
+      "groupCode": "100001004",
+      "groupName": "가구/홈",
+      "imageUrl": "https://image.gmarket.co.kr/hanbando/202406/bf457151-db1e-4fd2-8dc1-82c1f75f5471.jpg",
+      "subGroups": [
+        {
+          "groupSubName": "전체"
+        },
+        {
+          "groupSubName": "가구/DIY",
+          "groupSubCode": "200003010"
+        },
+        {
+          "groupSubName": "침구/홈",
+          "groupSubCode": "200006015"
+        },
+        {
+          "groupSubName": "인테리어/소품",
+          "groupSubCode": "200001025"
+        }
+      ]
+    },
+    {
+      "groupCode": "100001002",
+      "groupName": "스포츠/건강",
+      "imageUrl": "https://image.gmarket.co.kr/hanbando/202407/3fdd769f-71e5-41fc-a20a-334dc7facdfe.png",
+      "subGroups": [
+        {
+          "groupSubName": "전체"
+        },
+        {
+          "groupSubName": "마스크/의료",
+          "groupSubCode": "200006009"
+        },
+        {
+          "groupSubName": "안마/정수기/비데",
+          "groupSubCode": "200006010"
+        },
+        {
+          "groupSubName": "스포츠의류/운동화",
+          "groupSubCode": "200006011"
+        },
+        {
+          "groupSubName": "등산/아웃도어",
+          "groupSubCode": "200006012"
+        },
+        {
+          "groupSubName": "캠핑/낚시",
+          "groupSubCode": "200006013"
+        },
+        {
+          "groupSubName": "구기/라켓/수영",
+          "groupSubCode": "200006014"
+        },
+        {
+          "groupSubName": "골프/자전거",
+          "groupSubCode": "200007001"
+        },
+        {
+          "groupSubName": "렌탈 서비스",
+          "groupSubCode": "200015001"
+        }
+      ]
+    },
+    {
+      "groupCode": "100001003",
+      "groupName": "취미/문구/펫",
+      "imageUrl": "https://image.gmarket.co.kr/hanbando/202406/1950378a-4b6b-47f7-bbb4-4cbe0c3088a5.png",
+      "subGroups": [
+        {
+          "groupSubName": "전체"
+        },
+        {
+          "groupSubName": "악기/취미",
+          "groupSubCode": "200001018"
+        },
+        {
+          "groupSubName": "꽃/이벤트용품",
+          "groupSubCode": "200001020"
+        },
+        {
+          "groupSubName": "문구/사무용품",
+          "groupSubCode": "200001021"
+        },
+        {
+          "groupSubName": "반려동물",
+          "groupSubCode": "200001022"
+        }
+      ]
+    },
+    {
+      "groupCode": "100001009",
+      "groupName": "도서/음반",
+      "imageUrl": "https://image.gmarket.co.kr/hanbando/202406/5f3983bf-4d8f-49ed-9265-544130aafe0b.png",
+      "subGroups": [
+        {
+          "groupSubName": "전체"
+        },
+        {
+          "groupSubName": "유아/원서",
+          "groupSubCode": "200008001"
+        },
+        {
+          "groupSubName": "어린이",
+          "groupSubCode": "200008002"
+        },
+        {
+          "groupSubName": "참고서",
+          "groupSubCode": "200008003"
+        },
+        {
+          "groupSubName": "문학/인문",
+          "groupSubCode": "200008004"
+        },
+        {
+          "groupSubName": "경제/경영",
+          "groupSubCode": "200008005"
+        },
+        {
+          "groupSubName": "취미실용/잡지/만화",
+          "groupSubCode": "200008006"
+        },
+        {
+          "groupSubName": "교재/수험서",
+          "groupSubCode": "200008007"
+        },
+        {
+          "groupSubName": "중고도서",
+          "groupSubCode": "200008008"
+        },
+        {
+          "groupSubName": "콘텐츠",
+          "groupSubCode": "200008009"
+        }
+      ]
+    },
+    {
+      "groupCode": "100001011",
+      "groupName": "e쿠폰",
+      "imageUrl": "https://image.gmarket.co.kr/hanbando/202406/a80e790e-94e9-4926-834f-4915b87f3b4a.png",
+      "subGroups": [
+        {
+          "groupSubName": "전체"
+        },
+        {
+          "groupSubName": "모바일상품권",
+          "groupSubCode": "200006017"
+        },
+        {
+          "groupSubName": "커피/외식/영화",
+          "groupSubCode": "200001074"
+        },
+        {
+          "groupSubName": "지류상품권",
+          "groupSubCode": "200006018"
+        }
+      ]
+    },
+    {
+      "groupCode": "100001005",
+      "groupName": "여행",
+      "imageUrl": "https://image.gmarket.co.kr/hanbando/202406/86023c16-6bcd-465d-80cb-68678f99d84a.png",
+      "subGroups": [
+        {
+          "groupSubName": "전체"
+        },
+        {
+          "groupSubName": "국내여행",
+          "groupSubCode": "200003004"
+        },
+        {
+          "groupSubName": "해외여행",
+          "groupSubCode": "200003005"
+        }
+      ]
+    }
+  ]
+}
