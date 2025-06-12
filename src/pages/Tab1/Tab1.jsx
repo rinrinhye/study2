@@ -20,8 +20,8 @@ export default function Tab1() {
 		setLoading(true); // 요청 시작
 
 		Promise.all([
-			fetch("/categoryData.json").then((res) => res.json()),
-			fetch("/itemData.json").then((res) => res.json()),
+			fetch("/tab1/categoryData.json").then((res) => res.json()),
+			fetch("/tab1/itemData.json").then((res) => res.json()),
 		]).then(([categoryRes, productRes]) => {
 			setCategories(categoryRes.categoryData);
 			setProducts(productRes);
