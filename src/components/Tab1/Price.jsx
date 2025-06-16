@@ -1,4 +1,5 @@
 function PriceSale({ discountRate, price }) {
+	console.log("price", price);
 	return (
 		<div className={`box__price--sale ${discountRate > 0 ? "is-sale" : ""}`}>
 			{discountRate > 0 && <span className="text__rate">{discountRate}%</span>}
@@ -16,18 +17,13 @@ export default function Price({
 }) {
 	return (
 		<div className="box__price">
-			{!hasCoupon && discountRate === 0 && (
-				<PriceSale price={price} discountRate={discountRate} />
+			{hasCoupon && <span className="text__coupon">쿠폰적용가</span>}
+			{price !== discountPrice && (
+				<del className="text__regular-price">
+					<strong>{price}</strong>원
+				</del>
 			)}
-			{discountRate > 0 && (
-				<>
-					{hasCoupon && <span className="text__coupon">쿠폰적용가</span>}
-					<del className="text__regular-price">
-						<strong>{price}</strong>원
-					</del>
-					<PriceSale price={discountPrice} discountRate={discountRate} />
-				</>
-			)}
+			<PriceSale price={discountPrice} discountRate={discountRate} />
 		</div>
 	);
 }
