@@ -1,5 +1,4 @@
 function PriceSale({ discountRate, price }) {
-	console.log("price", price);
 	return (
 		<div className={`box__price--sale ${discountRate > 0 ? "is-sale" : ""}`}>
 			{discountRate > 0 && <span className="text__rate">{discountRate}%</span>}

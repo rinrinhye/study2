@@ -438,7 +438,7 @@
 						"isBrandOfficialSeller": false
 					},
 					"sellPrice": 35800,
-					"tagLabels": ["{code: 0, text: \"전단상품\"}"],
+					"tagLabels": [{ "code": 0, "text": "전단상품" }],
 					"dealImageUrl": "",
 					"deliveryCode": "M",
 					"lcode": "100000036",
@@ -516,7 +516,7 @@
 						"isBrandOfficialSeller": false
 					},
 					"sellPrice": 39800,
-					"tagLabels": ["{code: 0, text: \"미식관\"}"],
+					"tagLabels": [{ "code": 0, "text": "미식관" }],
 					"dealImageUrl": "",
 					"deliveryCode": "M",
 					"lcode": "100000020",
@@ -1683,7 +1683,7 @@
 						"isBrandOfficialSeller": false
 					},
 					"sellPrice": 1000,
-					"tagLabels": ["{code: 0, text: \"3개 사면 할인\"}"],
+					"tagLabels": [{ "code": 0, "text": "3개 사면 할인" }],
 					"dealImageUrl": "",
 					"deliveryCode": "M",
 					"lcode": "100000038",
