@@ -11,8 +11,8 @@ export default function CategoryItem({
 			<Button
 				type="button"
 				onClick={() => updateCategoryName(sdBrandName)}
-				curCategory={curCategory}
-				sdBrandName={sdBrandName}
+				$curCategory={curCategory}
+				$sdBrandName={sdBrandName}
 			>
 				<img src={brandLogoImage} alt={sdBrandName} />
 			</Button>
@@ -26,8 +26,8 @@ const Button = styled.button`
 	border: 1px solid #eee;
 	border-radius: 24px;
 
-	${({ curCategory, sdBrandName }) => {
-		if (curCategory === sdBrandName) {
+	${({ $curCategory, $sdBrandName }) => {
+		if ($curCategory === $sdBrandName) {
 			return `background:#00c400;`;
 		}
 	}}

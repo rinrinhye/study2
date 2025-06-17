@@ -2,9 +2,12 @@ import { useState } from "react";
 import { IoCartOutline } from "react-icons/io5";
 import { CiCircleMinus, CiCirclePlus } from "react-icons/ci";
 import styled from "styled-components";
+import LayerAddToCart from "./LayerAddToCart";
+import useModal from "../../hooks/useModal";
 
 export default function CartBox() {
 	const [count, setCount] = useState(1);
+	const modal = useModal();
 
 	const handleCount = (type) => {
 		if (type === "decrease") setCount((prev) => (prev === 1 ? 1 : prev - 1));
@@ -12,20 +15,23 @@ export default function CartBox() {
 	};
 
 	return (
-		<Box>
-			<CountBox>
-				<button type="button" onClick={() => handleCount("decrease")}>
-					<CiCircleMinus size={32} color="gray" />
+		<>
+			<Box>
+				<CountBox>
+					<button type="button" onClick={() => handleCount("decrease")}>
+						<CiCircleMinus size={32} color="gray" />
+					</button>
+					<span>{count}</span>
+					<button type="button" onClick={() => handleCount("increase")}>
+						<CiCirclePlus size={32} color="gray" />
+					</button>
+				</CountBox>
+				<button type="button" onClick={modal.open}>
+					<IoCartOutline size={20} color="#fff" />
 				</button>
-				<span>{count}</span>
-				<button type="button" onClick={() => handleCount("increase")}>
-					<CiCirclePlus size={32} color="gray" />
-				</button>
-			</CountBox>
-			<button type="button">
-				<IoCartOutline size={20} color="#fff" />
-			</button>
-		</Box>
+			</Box>
+			{modal.isOpen && <LayerAddToCart handleModal={modal} />}
+		</>
 	);
 }
 
