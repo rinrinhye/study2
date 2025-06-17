@@ -1,3 +1,4 @@
+import useDeviceType from "../../hooks/useDeviceType";
 import Badge from "./Badge";
 import Price from "./Price";
 import ProductImage from "./ProductImage";
@@ -25,6 +26,8 @@ export default function ItemCard({ products }) {
 		discountRate,
 	};
 
+	const device = useDeviceType();
+
 	return (
 		<li
 			className={`box__product${rank === 1 ? " is-rank1" : ""}`}
@@ -37,7 +40,7 @@ export default function ItemCard({ products }) {
 				{avgStarPoint && (
 					<StarRate avgStarPoint={avgStarPoint} reviewCount={reviewCount} />
 				)}
-				{lmos[0] && <Badge lmos={lmos} />}
+				{device !== "desktop" && lmos[0] && <Badge lmos={lmos} />}
 			</div>
 		</li>
 	);
