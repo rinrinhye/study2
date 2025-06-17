@@ -5,7 +5,7 @@ import { Navigation } from "swiper/modules";
 import styled from "styled-components";
 import { GrPrevious, GrNext } from "react-icons/gr";
 
-export default function ProductList({ products }) {
+export default function ProductList({ products, curCategory }) {
 	const swiperConfig = {
 		slidesPerView: 5,
 		spaceBetween: 12,
@@ -26,7 +26,7 @@ export default function ProductList({ products }) {
 			<NextButton type="button" className="button__next">
 				<GrNext />
 			</NextButton>
-			<Swiper {...swiperConfig}>
+			<Swiper {...swiperConfig} key={curCategory}>
 				{products.map((product) => (
 					<SwiperSlide>
 						<ProductCard product={product} />

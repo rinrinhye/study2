@@ -47,7 +47,7 @@ export default function Tab2() {
 				categories={categories}
 				curCategory={curCategory}
 			/>
-			<ProductList products={filteredProducts} />
+			<ProductList products={filteredProducts} curCategory={curCategory} />
 		</Tab2Layout>
 	);
 }
