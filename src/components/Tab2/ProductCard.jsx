@@ -4,6 +4,7 @@ import PriceBox from "./PriceBox";
 import ImageBox from "./ImageBox";
 import RatingBox from "./RatingBox";
 import styled from "styled-components";
+import CouponBadge from "./CouponBadge";
 
 export default function ProductCard({ product }) {
 	const {
@@ -28,6 +29,9 @@ export default function ProductCard({ product }) {
 			<NameBox itemName={itemName} />
 			<PriceBox {...priceInfo} />
 			<RatingBox reviewPoint={reviewPoint} buyCount={buyCount} />
+			{couponDiscount?.discountRate !== 0 && (
+				<CouponBadge text={couponDiscount?.discountRate} />
+			)}
 		</Card>
 	);
 }

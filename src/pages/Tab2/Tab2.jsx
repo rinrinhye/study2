@@ -5,12 +5,9 @@ import styled from "styled-components";
 
 export default function Tab2() {
 	const [isLoading, setLoading] = useState(true);
+	const [isError, setError] = useState(null);
 	const [categories, setCategories] = useState([]);
 	const [curCategory, setCurCategory] = useState("");
-
-	const updateCategoryName = (categoryName) => {
-		setCurCategory(categoryName);
-	};
 
 	useEffect(() => {
 		setLoading(true);
@@ -23,6 +20,7 @@ export default function Tab2() {
 				setCurCategory(data.catalogs[0]?.sdBrandName);
 			} catch (error) {
 				console.log(error);
+				setError(error.message);
 			} finally {
 				setLoading(false);
 			}
@@ -31,11 +29,16 @@ export default function Tab2() {
 		fetchData();
 	}, []);
 
-	if (isLoading) return <div>Loading</div>;
+	const updateCategoryName = (categoryName) => {
+		setCurCategory(categoryName);
+	};
 
-	const filteredProducts = categories.find(
-		(category) => category.sdBrandName === curCategory
-	)?.items;
+	if (isLoading) return <div>Loading</div>;
+	if (isError) return <div>오류 {isError}</div>;
+
+	const filteredProducts =
+		categories.find((category) => category.sdBrandName === curCategory)
+			?.items || [];
 
 	return (
 		<Tab2Layout>
@@ -56,8 +59,6 @@ const Tab2Layout = styled.div`
 
 /* 
 
-쿠폰 태그?
-스와이퍼 버튼?
 장바구니 좋아요?
 
 */
