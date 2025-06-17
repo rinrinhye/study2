@@ -22,12 +22,17 @@ export default function Tab1() {
 		Promise.all([
 			fetch("/tab1/categoryData.json").then((res) => res.json()),
 			fetch("/tab1/itemData.json").then((res) => res.json()),
-		]).then(([categoryRes, productRes]) => {
-			setCategories(categoryRes.categoryData);
-			setProducts(productRes);
-
-			setLoading(false);
-		});
+		])
+			.then(([categoryRes, productRes]) => {
+				setCategories(categoryRes.categoryData);
+				setProducts(productRes);
+			})
+			.catch((error) => {
+				console.error("데이터 로딩 중 오류 발생:", error);
+			})
+			.finally(() => {
+				setLoading(false);
+			});
 	}, []);
 
 	if (loading) {
