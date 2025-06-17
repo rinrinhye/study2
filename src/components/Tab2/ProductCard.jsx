@@ -29,9 +29,7 @@ export default function ProductCard({ product }) {
 			<NameBox itemName={itemName} />
 			<PriceBox {...priceInfo} />
 			<RatingBox reviewPoint={reviewPoint} buyCount={buyCount} />
-			{couponDiscount?.discountRate !== 0 && (
-				<CouponBadge text={couponDiscount?.discountRate} />
-			)}
+			{couponDiscount && <CouponBadge text={couponDiscount?.discountRate} />}
 		</Card>
 	);
 }
