@@ -9,6 +9,7 @@ import Tab5 from "./pages/Tab5/Tab5.jsx";
 import Tab6 from "./pages/Tab6/Tab6.jsx";
 import Tab7 from "./pages/Tab7/Tab7.jsx";
 import Tab8 from "./pages/Tab8/Tab8.jsx";
+import "./styles/tailwind.css";
 
 // const router = createBrowserRouter([
 //   {
