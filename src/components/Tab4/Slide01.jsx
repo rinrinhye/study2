@@ -93,15 +93,15 @@ const Slide01 = () => {
   const isPlaying = isUserAction ? !isUserPaused : !isAutoPaused;
 
   const handleMouseEnter = () => {
+    setIsHover(true);
     if (isUserAction) return;
     setIsAutoPaused(true);
-    setIsHover(true);
   };
 
   const handleMouseLeave = () => {
+    setIsHover(false);
     if (isUserAction) return;
     setIsAutoPaused(false);
-    setIsHover(false);
   };
 
   const handlePlayClick = () => {
