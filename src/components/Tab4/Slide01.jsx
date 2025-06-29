@@ -115,26 +115,18 @@ const Slide01 = () => {
   };
 
   useEffect(() => {
-    const playing = isUserAction ? !isUserPaused : !isAutoPaused;
-
     if (!swiperRef.current) return;
 
+    // 상태 계산
+    const playing = isUserAction ? !isUserPaused : !isAutoPaused;
+
+    // Swiper autoplay 상태와 동기화
     if (playing && !swiperRef.current.autoplay.running) {
       swiperRef.current.autoplay.start();
     } else if (!playing && swiperRef.current.autoplay.running) {
       swiperRef.current.autoplay.stop();
     }
-  }, [isAutoPaused, isUserPaused, isUserAction]);
-
-  useEffect(() => {
-    if (!swiperRef.current) return;
-
-    if (isPlaying && !swiperRef.current.autoplay.running) {
-      swiperRef.current.autoplay.start();
-    } else if (!isPlaying && swiperRef.current.autoplay.running) {
-      swiperRef.current.autoplay.stop();
-    }
-  }, [isPlaying]);
+  }, [isUserAction, isUserPaused, isAutoPaused]);
 
   return (
     <div
