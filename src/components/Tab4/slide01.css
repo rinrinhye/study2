@@ -1,0 +1,30 @@
+.swiper {
+  height: 450px;
+}
+
+.swiper-slide {
+  width: 300px;
+}
+
+.swiper-pagination {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  z-index: 30;
+  width: 100%;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  display: block;
+  background-color: rgba(0, 128, 128, 0.388);
+
+  &.swiper-pagination-bullet-active {
+    background-color: teal;
+  }
+}
