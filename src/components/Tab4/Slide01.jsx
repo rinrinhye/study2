@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import Card from "./Card";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { GrPrevious, GrNext } from "react-icons/gr";
 import "./slide01.css";
@@ -73,7 +73,7 @@ const swiperConfig = {
 		prevEl: ".slide-01 .button__prev",
 		nextEl: ".slide-01 .button__next",
 	},
-	autoplay: { delay: 1500 },
+	autoplay: { delay: 1500, pauseOnMouseEnter: true },
 	pagination: { clickable: true, type: "bullets" },
 };
 
@@ -84,45 +84,31 @@ const navBtnHidden = "opacity-0 pointer-events-none";
 
 const Slide01 = () => {
 	const [activeIndex, setActiveIndex] = useState(0);
-	const [isUserPaused, setIsUserPaused] = useState(null);
-	const [isAutoPaused, setIsAutoPaused] = useState(false);
+	const [isUserPaused, setIsUserPaused] = useState(null); // null이면 자동모드, true/false는 수동모드
 	const [isHover, setIsHover] = useState(false);
 	const swiperRef = useRef();
 
-	const isPlaying = (() => {
-		if (isUserPaused === null) return !isAutoPaused;
-		return !isUserPaused;
-	})();
-
 	const handleMouseEnter = () => {
 		setIsHover(true);
-		if (isUserPaused === true) return;
-		setIsAutoPaused(true);
 	};
 
 	const handleMouseLeave = () => {
 		setIsHover(false);
-		if (isUserPaused === true) return;
-		setIsAutoPaused(false);
 	};
 
 	const handlePlayClick = () => {
 		setIsUserPaused(false);
+		swiperRef.current?.autoplay?.start();
 	};
 
 	const handlePauseClick = () => {
 		setIsUserPaused(true);
+		swiperRef.current?.autoplay?.stop();
 	};
 
-	useEffect(() => {
-		if (!swiperRef.current) return;
-
-		if (isPlaying && !swiperRef.current.autoplay.running) {
-			swiperRef.current.autoplay.start();
-		} else if (!isPlaying && swiperRef.current.autoplay.running) {
-			swiperRef.current.autoplay.stop();
-		}
-	}, [isUserPaused, isAutoPaused]);
+	const handleTransitionEnd = (swiper) => {
+		setActiveIndex(swiper.realIndex);
+	};
 
 	return (
 		<div
@@ -148,7 +134,7 @@ const Slide01 = () => {
 			</button>
 			<Swiper
 				{...swiperConfig}
-				onTransitionEnd={(s) => setActiveIndex(s.realIndex)}
+				onTransitionEnd={handleTransitionEnd}
 				onSwiper={(swiper) => (swiperRef.current = swiper)}
 			>
 				{slidesData.map((item, i) => (
@@ -158,7 +144,7 @@ const Slide01 = () => {
 				))}
 			</Swiper>
 			<TogglePlayButton
-				isPlaying={isPlaying}
+				isUserPaused={isUserPaused}
 				handlePauseClick={handlePauseClick}
 				handlePlayClick={handlePlayClick}
 			/>
