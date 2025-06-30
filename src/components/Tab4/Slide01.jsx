@@ -84,7 +84,7 @@ const navBtnHidden = "opacity-0 invisible";
 
 const Slide01 = () => {
 	const [activeIndex, setActiveIndex] = useState(0);
-	const [isUserPaused, setIsUserPaused] = useState(false);
+	const [isUserPaused, setIsUserPaused] = useState(null);
 	const [isAutoPaused, setIsAutoPaused] = useState(false);
 	const [isHover, setIsHover] = useState(false);
 	const swiperRef = useRef();
