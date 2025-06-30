@@ -74,7 +74,15 @@ const swiperConfig = {
 		nextEl: ".slide-01 .button__next",
 	},
 	autoplay: { delay: 1500, pauseOnMouseEnter: true },
-	pagination: { clickable: true, type: "bullets" },
+	pagination: {
+		clickable: true,
+		type: "bullets",
+		renderBullet: (index, className) => {
+			return `<button type="button" class="${className}" aria-label="Go to slide ${
+				index + 1
+			}"><span>${index + 1}</span></button>`;
+		},
+	},
 };
 
 const navBtnBase =
