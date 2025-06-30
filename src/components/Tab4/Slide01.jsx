@@ -76,7 +76,6 @@ const swiperConfig = {
 	autoplay: { delay: 1500, pauseOnMouseEnter: true },
 	pagination: {
 		clickable: true,
-		type: "bullets",
 		renderBullet: (index, className) => {
 			return `<button type="button" class="${className}" aria-label="Go to slide ${
 				index + 1
