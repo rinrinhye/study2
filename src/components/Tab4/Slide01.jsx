@@ -84,27 +84,25 @@ const navBtnHidden = "opacity-0 invisible";
 
 const Slide01 = () => {
 	const [activeIndex, setActiveIndex] = useState(0);
-	const [isUserPaused, setIsUserPaused] = useState(null);
+	const [isUserPaused, setIsUserPaused] = useState(false);
 	const [isAutoPaused, setIsAutoPaused] = useState(false);
 	const [isHover, setIsHover] = useState(false);
 	const swiperRef = useRef();
 
 	const isPlaying = (() => {
-		if (isUserPaused === null) {
-			return !isAutoPaused; // 유저 조작 전엔 자동 멈춤 상태 따라감
-		}
-		return !isUserPaused; // 유저가 조작했으면 그 상태 따라감
+		if (isUserPaused === null) return !isAutoPaused;
+		return !isUserPaused;
 	})();
 
 	const handleMouseEnter = () => {
+		setIsHover(true);
 		if (isUserPaused === true) return;
 		setIsAutoPaused(true);
 	};
 
 	const handleMouseLeave = () => {
-		if (isUserPaused === false) {
-			setIsUserPaused(null);
-		}
+		setIsHover(false);
+		if (isUserPaused === true) return;
 		setIsAutoPaused(false);
 	};
 
