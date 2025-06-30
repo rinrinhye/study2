@@ -79,8 +79,8 @@ const swiperConfig = {
 
 const navBtnBase =
 	"absolute top-40 z-40 transition-opacity duration-300 cursor-pointer";
-const navBtnVisible = "opacity-100 visible";
-const navBtnHidden = "opacity-0 invisible";
+const navBtnVisible = "opacity-100 pointer-events-auto";
+const navBtnHidden = "opacity-0 pointer-events-none";
 
 const Slide01 = () => {
 	const [activeIndex, setActiveIndex] = useState(0);
@@ -134,7 +134,7 @@ const Slide01 = () => {
 				type='button'
 				className={`button__prev ${navBtnBase} left-64 ${
 					isHover ? navBtnVisible : navBtnHidden
-				}`}
+				} focus:opacity-100 focus:pointer-events-auto focus:visible`}
 			>
 				<GrPrevious size={40} color='white' />
 			</button>
@@ -142,7 +142,7 @@ const Slide01 = () => {
 				type='button'
 				className={`button__next ${navBtnBase} right-64 ${
 					isHover ? navBtnVisible : navBtnHidden
-				}`}
+				} focus:opacity-100 focus:pointer-events-auto focus:visible`}
 			>
 				<GrNext size={40} color='white' />
 			</button>
@@ -167,14 +167,3 @@ const Slide01 = () => {
 };
 
 export default Slide01;
-
-/* 
-
-1. 좌우 버튼 없어질 때 스르르 없어지게 개선
-2. 페이지네이션
-3. 다른 메소드 공부?
-4. play 버튼 누르머ㅕㄴ 재생되게
-5. 모듈로 써야하는 것들에는 뭐가잇는지?
-
-
-*/
