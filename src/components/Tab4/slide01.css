@@ -1,42 +1,44 @@
-.swiper {
-	height: 450px;
-}
-
-.swiper-slide {
-	width: 300px;
-}
-
-.swiper-pagination {
-	position: absolute;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	bottom: 0;
-	z-index: 30;
-	width: 100%;
-	gap: 8px;
-}
-
-.swiper-pagination-bullet {
-	width: 8px;
-	height: 8px;
-	display: block;
-	background-color: rgba(0, 128, 128, 0.388);
-	cursor: pointer;
-
-	&.swiper-pagination-bullet-active {
-		background-color: teal;
+.slide-01 {
+	.swiper {
+		height: 450px;
 	}
 
-	span {
+	.swiper-slide {
+		width: 300px;
+	}
+
+	.swiper-pagination {
 		position: absolute;
-		width: 1px;
-		height: 1px;
-		padding: 0;
-		margin: -1px;
-		overflow: hidden;
-		clip: rect(0, 0, 0, 0);
-		white-space: nowrap;
-		border: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		bottom: 0;
+		z-index: 30;
+		width: 100%;
+		gap: 8px;
+	}
+
+	.swiper-pagination-bullet {
+		width: 8px;
+		height: 8px;
+		display: block;
+		background-color: rgba(0, 128, 128, 0.388);
+		cursor: pointer;
+
+		&.swiper-pagination-bullet-active {
+			background-color: teal;
+		}
+
+		span {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			padding: 0;
+			margin: -1px;
+			overflow: hidden;
+			clip: rect(0, 0, 0, 0);
+			white-space: nowrap;
+			border: 0;
+		}
 	}
 }
