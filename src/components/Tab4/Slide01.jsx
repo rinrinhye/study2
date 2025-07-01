@@ -129,17 +129,19 @@ const Slide01 = () => {
     >
       <button
         type="button"
-        className={`button__prev ${navBtnBase} left-64 ${
-          isHover ? navBtnVisible : navBtnHidden
-        } focus:opacity-100 focus:pointer-events-auto focus:visible`}
+        className={`button__prev ${navBtnBase} left-64
+        ${isHover ? navBtnVisible : navBtnHidden}
+        group-hover:opacity-100
+        focus-visible:opacity-100 focus-visible:pointer-events-auto focus-visible:visible`}
       >
         <GrPrevious size={40} color="white" />
       </button>
       <button
         type="button"
-        className={`button__next ${navBtnBase} right-64 ${
-          isHover ? navBtnVisible : navBtnHidden
-        } focus:opacity-100 focus-visible:pointer-events-auto focus:visible`}
+        className={`button__next ${navBtnBase} right-64
+        ${isHover ? navBtnVisible : navBtnHidden}
+        group-hover:opacity-100
+        focus-visible:opacity-100 focus-visible:pointer-events-auto focus-visible:visible`}
       >
         <GrNext size={40} color="white" />
       </button>
