@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import Card from "./Card";
-import { useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { GrPrevious, GrNext } from "react-icons/gr";
 import "./slide01.css";
@@ -95,33 +95,37 @@ const Slide01 = () => {
 	const [isHover, setIsHover] = useState(false);
 	const swiperRef = useRef();
 
-	const handleMouseEnter = () => {
-		setIsHover(true);
+	// const handleMouseEnter = () => {
+	// 	setIsHover(true);
+	// };
+
+	// const handleMouseLeave = () => {
+	// 	setIsHover(false);
+	// };
+
+	const handleMouseHover = (isHover) => {
+		setIsHover(!isHover);
 	};
 
-	const handleMouseLeave = () => {
-		setIsHover(false);
-	};
-
-	const handlePlayClick = () => {
+	const handlePlayClick = useCallback(() => {
 		setIsUserPaused(false);
 		swiperRef.current?.autoplay?.start();
-	};
+	}, []);
 
-	const handlePauseClick = () => {
+	const handlePauseClick = useCallback(() => {
 		setIsUserPaused(true);
 		swiperRef.current?.autoplay?.stop();
-	};
+	}, []);
 
-	const handleTransitionEnd = (swiper) => {
+	const handleTransitionEnd = useCallback((swiper) => {
 		setActiveIndex(swiper.realIndex);
-	};
+	}, []);
 
 	return (
 		<div
 			className='slide-01 relative mt-6'
-			onMouseEnter={handleMouseEnter}
-			onMouseLeave={handleMouseLeave}
+			onMouseEnter={() => handleMouseHover(isHover)}
+			onMouseLeave={() => handleMouseHover(isHover)}
 		>
 			<button
 				type='button'

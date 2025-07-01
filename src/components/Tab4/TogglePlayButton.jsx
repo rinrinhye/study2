@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { IoPauseSharp, IoPlay } from "react-icons/io5";
 
 const TogglePlayButton = ({
@@ -20,4 +21,4 @@ const TogglePlayButton = ({
 	);
 };
 
-export default TogglePlayButton;
+export default memo(TogglePlayButton);
