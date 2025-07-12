@@ -1,15 +1,14 @@
-import { NavLink } from 'react-router';
-import styles from './Header.module.css';
+import { NavLink } from "react-router";
+import styles from "./Header.module.css";
 
 const tabs = [
-  { title: '1주차', params: '/tab1' },
-  { title: '2주차', params: '/tab2' },
-  { title: '3주차', params: '/tab3' },
-  { title: '4주차', params: '/tab4' },
-  { title: '5주차', params: '/tab5' },
-  { title: '6주차', params: '/tab6' },
-  { title: '7주차', params: '/tab7' },
-  { title: '8주차', params: '/tab8' },
+  { title: "실습1", params: "/tab1" },
+  { title: "실습2", params: "/tab2" },
+  { title: "실습3", params: "/tab3" },
+  { title: "실습4", params: "/tab4" },
+  { title: "실습5", params: "/tab5" },
+  { title: "실습6", params: "/tab6" },
+  { title: "실습7", params: "/tab7" },
 ];
 
 export default function Header() {
