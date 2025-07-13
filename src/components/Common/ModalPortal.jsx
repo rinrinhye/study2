@@ -1,7 +1,7 @@
 import { createPortal } from "react-dom";
 
-export default function ModalPortal({ children }) {
-	const modalRoot = document.getElementById("modal-root");
+export default function ModalPortal({ children, containerId }) {
+  const root = document.getElementById(containerId);
 
-	return createPortal(children, modalRoot);
+  return createPortal(children, root);
 }
