@@ -5,7 +5,7 @@ import { ToastProvider } from "./components/Tab6/ToastPractice/ToastProvider";
 function App() {
   return (
     <ToastProvider>
-      <div className="font-[Pretendard]">
+      <div>
         <Header />
         <Outlet />
       </div>

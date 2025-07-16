@@ -1,5 +1,11 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+
+@layer base {
+	html {
+		font-family: "Pretendard", sans-serif;
+	}
+}
 
 button {
-  @apply cursor-pointer;
+	@apply cursor-pointer;
 }
