@@ -7,7 +7,11 @@ const CartButton = ({ handleClick }) => {
 			onClick={handleClick}
 			className='bg-yellow-400 px-6 py-2 rounded-2xl'
 		>
-			<IoCartOutline size={20} color='#fff' />
+			<IoCartOutline
+				size={20}
+				color='#fff'
+				className='pointer-events-none'
+			/>
 		</button>
 	);
 };
