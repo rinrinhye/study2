@@ -44,6 +44,4 @@ export default function ProductList({ products, curCategory }) {
 
 const ProductSlide = styled.div`
 	position: relative;
-
-}
 `;
