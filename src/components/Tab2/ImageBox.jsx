@@ -4,7 +4,7 @@ import Tag from "./Tag";
 export default function ImageBox({ imageUrl, tagLabels }) {
 	return (
 		<ProductImage>
-			<img src={imageUrl} alt="" />
+			<img src={imageUrl} alt='' />
 			{tagLabels?.length > 0 && <Tag text={tagLabels[0].text} />}
 		</ProductImage>
 	);

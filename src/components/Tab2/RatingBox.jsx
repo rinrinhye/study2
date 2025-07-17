@@ -9,8 +9,9 @@ export default function RatingBox({ reviewPoint, buyCount }) {
 			{reviewPoint.starPoint !== 0 && (
 				<>
 					<img
-						src="https://script.gmarket.co.kr/starro/mobile/images/single/best/gds-star-fill.svg"
-						alt=""
+						className='inline-block'
+						src='https://script.gmarket.co.kr/starro/mobile/images/single/best/gds-star-fill.svg'
+						alt=''
 					/>
 					<span>{reviewPoint.starPoint}</span>(
 					<span>{formatNumber(reviewPoint.reviewCount)}</span>) ·

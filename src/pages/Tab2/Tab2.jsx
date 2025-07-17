@@ -41,24 +41,16 @@ export default function Tab2() {
 			?.items || [];
 
 	return (
-		<Tab2Layout>
+		<div className='max-w-[1000px] mx-auto mt-10'>
 			<CategoryList
 				updateCategoryName={updateCategoryName}
 				categories={categories}
 				curCategory={curCategory}
 			/>
-			<ProductList products={filteredProducts} curCategory={curCategory} />
-		</Tab2Layout>
+			<ProductList
+				products={filteredProducts}
+				curCategory={curCategory}
+			/>
+		</div>
 	);
 }
-
-const Tab2Layout = styled.div`
-	max-width: 1000px;
-	margin: 40px auto 0;
-`;
-
-/* 
-
-장바구니 좋아요?
-
-*/

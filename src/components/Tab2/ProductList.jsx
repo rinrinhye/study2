@@ -19,12 +19,18 @@ export default function ProductList({ products, curCategory }) {
 
 	return (
 		<ProductSlide>
-			<PrevButton type='button' className='button__prev'>
-				<GrPrevious />
-			</PrevButton>
-			<NextButton type='button' className='button__next'>
-				<GrNext />
-			</NextButton>
+			<button
+				type='button'
+				className='button__prev absolute top-[80px] -left-12 text-center p-2'
+			>
+				<GrPrevious className='inline' color='gray' size={24} />
+			</button>
+			<button
+				type='button'
+				className='button__next absolute top-[80px] -right-12 p-2'
+			>
+				<GrNext className='inline' color='gray' size={24} />
+			</button>
 			<Swiper {...swiperConfig} key={curCategory}>
 				{products.map((product) => (
 					<SwiperSlide>
@@ -39,21 +45,5 @@ export default function ProductList({ products, curCategory }) {
 const ProductSlide = styled.div`
 	position: relative;
 
-	> button {
-		position: absolute;
-		top: 80px;
-		width: 42px;
-		height: 42px;
-		border: 1px solid #888;
-		border-radius: 50%;
-		z-index: 10;
-		background-color: #fff;
-	}
-`;
-
-const PrevButton = styled.button`
-	left: -21px;
-`;
-const NextButton = styled.button`
-	right: -21px;
+}
 `;

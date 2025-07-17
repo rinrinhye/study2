@@ -4,6 +4,14 @@ import "./category-slide.css";
 import { useLocation, useSearchParams } from "react-router";
 import ProductList from "../../components/Tab1/ProductList";
 
+/* 
+
+async await 코드로 바꿔보기
+스타일 수정?
+로딩중, 에러 상태 관리?
+
+*/
+
 export default function Tab1() {
 	const [loading, setLoading] = useState(true);
 	const [categories, setCategories] = useState([]);
