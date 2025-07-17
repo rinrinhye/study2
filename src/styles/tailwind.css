@@ -6,6 +6,17 @@
 	}
 }
 
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+	vertical-align: baseline;
+}
+
 button {
 	@apply cursor-pointer;
 }

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import Category from "../../components/Tab1/Category";
-import "./Tab1.css";
+import CategoryList from "../../components/Tab1/CategoryList";
+import "./category-slide.css";
 import { useLocation, useSearchParams } from "react-router";
-import ItemCard from "../../components/Tab1/ItemCard";
+import ProductList from "../../components/Tab1/ProductList";
 
 export default function Tab1() {
 	const [loading, setLoading] = useState(true);
@@ -12,8 +12,8 @@ export default function Tab1() {
 	// const { search } = useLocation();
 	// const params = new URLSearchParams(search);
 	// const curGroupCode = params.get("groupCode") || "100000000";
-	const [searchParams] = useSearchParams();
 
+	const [searchParams] = useSearchParams();
 	const curGroupCode = searchParams.get("groupCode") || "100000000";
 
 	useEffect(() => {
@@ -42,14 +42,12 @@ export default function Tab1() {
 	const curProducts = products[curGroupCode] || products[100000000];
 
 	return (
-		<div className="tab1">
-			<header className="header">베스트</header>
-			<Category categories={categories} curGroupCode={curGroupCode} />
-			<ul className="list__product">
-				{curProducts.map((items) => (
-					<ItemCard products={items} key={items.goodsCode} />
-				))}
-			</ul>
+		<div className='tab1'>
+			<header className='py-4 text-center text-xl font-semibold border-y-1 border-[#e0e0e0] text-gray-800'>
+				베스트
+			</header>
+			<CategoryList categories={categories} curGroupCode={curGroupCode} />
+			<ProductList curProducts={curProducts} />
 		</div>
 	);
 }

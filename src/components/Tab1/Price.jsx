@@ -1,9 +1,11 @@
 function PriceSale({ discountRate, price }) {
 	return (
-		<div className={`box__price--sale ${discountRate > 0 ? "is-sale" : ""}`}>
-			{discountRate > 0 && <span className="text__rate">{discountRate}%</span>}
-			<strong className="text__sale-price">{price}</strong>
-			<span className="text__unit">원</span>
+		<div className={` ${discountRate > 0 ? "mb-1 text-[#da120d]" : ""}`}>
+			{discountRate > 0 && (
+				<span className='text-sm'>{discountRate}%</span>
+			)}
+			<strong>{price}</strong>
+			<span>원</span>
 		</div>
 	);
 }
@@ -15,10 +17,14 @@ export default function Price({
 	discountRate,
 }) {
 	return (
-		<div className="box__price">
-			{hasCoupon && <span className="text__coupon">쿠폰적용가</span>}
+		<div>
+			{hasCoupon && (
+				<span className='text-[#da120d] text-[11px] [&+del]:mt-0.5'>
+					쿠폰적용가
+				</span>
+			)}
 			{price !== discountPrice && (
-				<del className="text__regular-price">
+				<del className='text-[11px] text-[#888]'>
 					<strong>{price}</strong>원
 				</del>
 			)}

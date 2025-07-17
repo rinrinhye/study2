@@ -1,0 +1,19 @@
+.category-slide {
+	.swiper-slide {
+		width: 62px;
+		height: 74px;
+	}
+
+	span {
+		display: block;
+		font-size: 12px;
+		white-space: nowrap;
+	}
+
+	@media (min-width: 768px) {
+		.swiper-slide {
+			width: 68px;
+			height: 100px;
+		}
+	}
+}

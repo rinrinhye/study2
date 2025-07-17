@@ -12,14 +12,14 @@ const tabs = [
 
 export default function Header() {
 	return (
-		<header className=''>
-			<nav className='h-[80px] flex items-center justify-center'>
+		<header>
+			<nav className='flex items-center justify-center flex-wrap p-2 mb-4'>
 				{tabs.map((tab, index) => (
 					<NavLink
 						to={tab.params}
 						key={index}
 						className={({ isActive }) =>
-							`p-4 ${
+							`px-8 py-6 ${
 								isActive
 									? "font-bold text-cyan-600"
 									: "font-medium"

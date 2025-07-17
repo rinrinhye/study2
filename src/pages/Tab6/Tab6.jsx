@@ -5,7 +5,6 @@ import LottieBox from "../../components/Tab6/Lottie/LottieBox";
 
 export default function Tab6() {
   const modal = useModal();
-  const lottieRef = useRef();
 
   return (
     <>

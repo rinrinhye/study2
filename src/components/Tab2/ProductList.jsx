@@ -1,5 +1,4 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
 import ProductCard from "./ProductCard";
 import { Navigation } from "swiper/modules";
 import styled from "styled-components";
@@ -20,10 +19,10 @@ export default function ProductList({ products, curCategory }) {
 
 	return (
 		<ProductSlide>
-			<PrevButton type="button" className="button__prev">
+			<PrevButton type='button' className='button__prev'>
 				<GrPrevious />
 			</PrevButton>
-			<NextButton type="button" className="button__next">
+			<NextButton type='button' className='button__next'>
 				<GrNext />
 			</NextButton>
 			<Swiper {...swiperConfig} key={curCategory}>
