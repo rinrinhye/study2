@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import CategoryList from "../../components/Tab2/CategoryList";
 import ProductList from "../../components/Tab2/ProductList";
-import styled from "styled-components";
 
 export default function Tab2() {
 	const [isLoading, setLoading] = useState(true);
