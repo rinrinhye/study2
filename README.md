@@ -29,14 +29,16 @@ If you are developing a production application, we recommend using TypeScript wi
 
 ### 할일
 
--   레이어 컴포넌트 공통으로 만들기?
--   레이어 포커스트랩?
 -   버튼 컴포넌트 공통으로 만들기?
--   css 정리?
+-   Dimmed 공통으로 분리하기
+-   레이어 컴포넌트 공통으로 만들기?
+
+-   레이어 포커스트랩 모두 적용?
 -   input range
 -   createPortal useEffect 사용해서 필요할 때만 돔에 추가하기
 -   practice-5 레이어 스타일
+
 -   tailwind css 사용법 간단 정리?
 -   toast popup - 내용 정리하기
--   Dimmed 공통으로 분리하기
--
+
+-   css 정리?

@@ -13,9 +13,9 @@ const TogglePlayButton = ({
 			onClick={!isUserPaused ? handlePauseClick : handlePlayClick}
 		>
 			{!isUserPaused ? (
-				<IoPauseSharp color='white' className='inline mb-1' />
+				<IoPauseSharp color='white' className='inline' />
 			) : (
-				<IoPlay color='white' className='inline mb-1' />
+				<IoPlay color='white' className='inline' />
 			)}
 		</button>
 	);
