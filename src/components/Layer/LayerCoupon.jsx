@@ -43,7 +43,7 @@ const LayerCoupon = ({ modal }) => {
     if (val === "coupon-g1") {
       addToast("놓친 쿠폰을 자동 발급해 드렸어요!");
     }
-    if (val.includes("none")) {
+    if (val === "coupon-none-01" || "coupon-none-02") {
       addToast("쿠폰 적용을 해제했어요!");
     }
   };
