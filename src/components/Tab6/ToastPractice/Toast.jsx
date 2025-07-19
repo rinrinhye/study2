@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const Toast = ({ id, message, onClose }) => {
+const Toast = ({ message, onClose }) => {
   // state 값 :  idle | in | out
   const [animation, setAnimation] = useState("idle");
 

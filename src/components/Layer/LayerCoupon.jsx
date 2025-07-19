@@ -46,7 +46,6 @@ const LayerCoupon = ({ modal }) => {
 
     if (val === "coupon-none-01" || val === "coupon-none-02") {
       addToast("쿠폰 적용을 해제했어요!");
-      console.log("????");
     }
   };
 
