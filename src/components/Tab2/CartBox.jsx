@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { CiCircleMinus, CiCirclePlus } from "react-icons/ci";
 import styled from "styled-components";
-import LayerAddToCart from "./LayerAddToCart";
+import LayerAddToCart from "../Layer/LayerAddToCart";
 import useModal from "../../hooks/useModal";
 import CartButton from "./CartButton";
 
