@@ -43,8 +43,10 @@ const LayerCoupon = ({ modal }) => {
     if (val === "coupon-g1") {
       addToast("놓친 쿠폰을 자동 발급해 드렸어요!");
     }
-    if (val === "coupon-none-01" || "coupon-none-02") {
+
+    if (val === "coupon-none-01" || val === "coupon-none-02") {
       addToast("쿠폰 적용을 해제했어요!");
+      console.log("????");
     }
   };
 
@@ -109,7 +111,7 @@ const LayerCoupon = ({ modal }) => {
                   type="radio"
                   name="gmarket"
                   id="counpon-none-01"
-                  value={"none"}
+                  value={"coupon-none-01"}
                   onChange={handleChange}
                   className="align-middle"
                 />
@@ -157,7 +159,7 @@ const LayerCoupon = ({ modal }) => {
                   type="radio"
                   name="duplicated"
                   id="counpon-none-02"
-                  value={"none"}
+                  value={"coupon-none-02"}
                   onChange={handleChange}
                   className="align-middle"
                 />
