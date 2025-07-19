@@ -10,9 +10,16 @@ export const ToastProvider = ({ children }) => {
 
   useEffect(() => {
     if (rootRef.current && toasts.length === 0) {
-      console.log("0개?");
-      rootRef.current.remove();
-      rootRef.current = null;
+      // 0개 된 순간 한 번만
+      const timer = setTimeout(() => {
+        // 여전히 0개면 제거
+        if (rootRef.current && toasts.length === 0) {
+          rootRef.current.remove();
+          rootRef.current = null;
+        }
+      }, 400); // exit duration (Toast exit transition보다 살짝 길게)
+
+      return () => clearTimeout(timer); // ✅ cleanup 함수
     }
   }, [toasts]);
 
