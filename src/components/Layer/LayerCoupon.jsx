@@ -73,12 +73,12 @@ const LayerCoupon = ({ modal }) => {
       className={` bg-green-50`}
       id="layer-coupon"
     >
-      <div className="content px-6">
+      <div className="px-6">
         <div>
-          <p className="mb-2">G마켓 쿠폰</p>
+          <p className="mb-2 text-sm">G마켓 쿠폰</p>
           <div className="flex flex-col gap-2">
             {groupedCoupons.gmarket.map((item) => (
-              <div key={item.couponId} className="flex justify-between">
+              <div key={item.couponId} className="flex gap-6">
                 <div>
                   <input
                     id={item.couponId}
@@ -86,14 +86,18 @@ const LayerCoupon = ({ modal }) => {
                     name="gmarket"
                     value={item.couponId}
                     onChange={handleChange}
+                    className="align-middle"
                   />
-                  <label className="font-bold" htmlFor={item.couponId}>
+                  <label
+                    className="font-bold text-sm ml-1"
+                    htmlFor={item.couponId}
+                  >
                     {item.discount}
                   </label>
                 </div>
 
                 <p className="flex flex-col">
-                  <span className="text-sm">{item.title}</span>
+                  <span className="text-sm mb-0.5">{item.title}</span>
                   <span className="text-xs">{item.desc}</span>
                   <span className="text-xs text-green-500">{item.badge}</span>
                 </p>
@@ -107,29 +111,39 @@ const LayerCoupon = ({ modal }) => {
                   id="counpon-none-01"
                   value={"none"}
                   onChange={handleChange}
+                  className="align-middle"
                 />
-                <label htmlFor="counpon-none-01">적용안함</label>
+                <label className="text-sm ml-1" htmlFor="counpon-none-01">
+                  적용안함
+                </label>
               </div>
             </div>
           </div>
         </div>
         <div className="mt-6">
-          <p className="mb-2">중복 쿠폰</p>
-          <div className="flex flex-col gap--2">
-            {groupedCoupons.gmarket.map((item) => (
-              <div key={item.couponId}>
+          <p className="mb-2 text-sm">중복 쿠폰</p>
+          <div className="flex flex-col gap-2">
+            {groupedCoupons.duplicate.map((item) => (
+              <div key={item.couponId} className="flex gap-6">
                 <div>
                   <input
+                    id={item.couponId}
                     type="radio"
                     name="duplicated"
                     value={item.couponId}
                     onChange={handleChange}
+                    className="align-middle"
                   />
-                  <label>{item.discount}</label>
+                  <label
+                    className="font-bold text-sm ml-1"
+                    htmlFor={item.couponId}
+                  >
+                    {item.discount}
+                  </label>
                 </div>
 
                 <p className="flex flex-col">
-                  <span className="text-sm">{item.title}</span>
+                  <span className="text-sm mb-0.5">{item.title}</span>
                   <span className="text-xs">{item.desc}</span>
                   {item.badge !== "" && (
                     <span className="text-xs text-green-500">{item.badge}</span>
@@ -142,11 +156,14 @@ const LayerCoupon = ({ modal }) => {
                 <input
                   type="radio"
                   name="duplicated"
-                  id="coupon-none-02"
+                  id="counpon-none-02"
                   value={"none"}
                   onChange={handleChange}
+                  className="align-middle"
                 />
-                <label htmlFor="coupon-none-02">적용안함</label>
+                <label className="text-sm ml-1" htmlFor="counpon-none-02">
+                  적용안함
+                </label>
               </div>
             </div>
           </div>

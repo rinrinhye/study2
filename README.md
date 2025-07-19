@@ -26,6 +26,7 @@ If you are developing a production application, we recommend using TypeScript wi
 ## practice-6
 
 - 키보드 탭 작동 시 포커스 안감 -> 이유 정리 완료
+- 토스트 팝업 렌더링 시에만 root 만들기!
 - 로띠 렌더링 시에만 root 만들기!
 
 ### 할일
@@ -33,10 +34,12 @@ If you are developing a production application, we recommend using TypeScript wi
 - 버튼 컴포넌트 공통으로 만들기?
 - Dimmed 공통으로 분리하기
 - 레이어 컴포넌트 공통으로 만들기?
-
 - 레이어 포커스트랩 모두 적용?
-- input range
 - createPortal useEffect 사용해서 필요할 때만 돔에 추가하기
+
+- 레이어 닫은 후 버튼 focus
+
+- input range
 - practice-5 레이어 스타일
 
 - tailwind css 사용법 간단 정리?

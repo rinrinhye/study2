@@ -48,8 +48,8 @@ const LayerContainer = ({ id, title, onClose, children, className = "" }) => {
       <Dimmed onClick={onClose} />
       <div ref={modalRef} id={id} className={`${layerStyles} ${className}`}>
         {title && (
-          <div className="text-center">
-            <h3 className="h-8">{title}</h3>
+          <div className="h-12 flex items-center justify-center text-lg">
+            <h3>{title}</h3>
           </div>
         )}
         {children}
