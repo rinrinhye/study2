@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @layer base {
-  html {
-    font-family: "Pretendard", sans-serif;
-  }
+	html {
+		font-family: "Pretendard", sans-serif;
+	}
 }
 
 img,
@@ -14,21 +14,21 @@ audio,
 iframe,
 embed,
 object {
-  vertical-align: baseline;
+	vertical-align: baseline;
 }
 
 button {
-  @apply cursor-pointer;
+	@apply cursor-pointer;
 }
 
 @layer components {
-  .btn {
-    @apply inline-flex items-center justify-center gap-2
+	.btn {
+		@apply inline-flex items-center justify-center gap-2
            px-4 py-2 rounded-lg
            text-sm font-medium
            select-none
            transition-colors
-           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2
+          focus-visible:ring-2 focus-visible:ring-offset-2
            disabled:opacity-50 disabled:cursor-not-allowed;
-  }
+	}
 }
