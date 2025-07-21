@@ -74,7 +74,7 @@ const LayerCoupon = ({ modal }) => {
       className={` bg-green-50`}
       id="layer-coupon"
     >
-      <div className="px-6">
+      <div className="px-6 pt-6">
         <div>
           <p className="mb-2 text-sm">G마켓 쿠폰</p>
           <div className="flex flex-col gap-2">

@@ -18,8 +18,8 @@ export default function Header() {
             to={tab.params}
             key={index}
             className={({ isActive }) =>
-              `px-8 py-6 ${
-                isActive ? "font-bold text-cyan-600" : "font-medium"
+              `px-8 py-6  hover:text-indigo-500 transition-colors duration-300 ease-in-out ${
+                isActive ? "font-bold text-indigo-500 " : "font-medium"
               }`
             }
           >
