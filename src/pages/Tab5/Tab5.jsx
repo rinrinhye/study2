@@ -15,10 +15,6 @@ export default function Tab5() {
 
 	const closeLayer = () => {
 		modal.close();
-		// 모달 닫힐 때 포커스 복귀
-		setTimeout(() => {
-			activeButtonRef.current?.focus();
-		}, 0);
 	};
 
 	return (

@@ -2,7 +2,6 @@ import useModal from "../../hooks/useModal";
 import LayerCoupon from "../../components/Layer/LayerCoupon";
 import LottieBox from "../../components/Tab6/Lottie/LottieBox";
 import Button from "../../components/Common/Button";
-import { useRef } from "react";
 
 export default function Tab6() {
 	const modal = useModal();

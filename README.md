@@ -37,7 +37,7 @@ If you are developing a production application, we recommend using TypeScript wi
 -   키보드 탭 작동 시 포커스 안감 -> 이유 정리 완료
 
 -   로띠 렌더링 시에만 root 만들기!
--   토스트 팝업 렌더링 시에만 root 만들기! -> 밑에서 올라오면서 다시 마운트됨.... -> 해결!!!! : 공부/정리 필요
+-   토스트 팝업 렌더링 시에만 root 만들기! -> 밑에서 올라오면서 다시 마운트됨.... -> 해결!!!! : ~~공부/정리 필요~~
 
 ### 할일
 
