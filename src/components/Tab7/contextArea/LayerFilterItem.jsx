@@ -1,5 +1,5 @@
 import React from "react";
-import {useFilterContext} from "../contextArea/filterContext";
+import {useFilterContext} from "../context/filterContext";
 
 const LayerFilterItem = ({item, groupId}) => {
 	const {updateFilter} = useFilterContext();
@@ -14,5 +14,5 @@ const LayerFilterItem = ({item, groupId}) => {
 	);
 };
 
-// export default React.memo(LayerFilterItem);
-export default LayerFilterItem;
+export default React.memo(LayerFilterItem);
+// export default LayerFilterItem;

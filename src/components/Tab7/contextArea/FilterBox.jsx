@@ -1,7 +1,8 @@
-import {useFilterContext} from "./filterContext";
+import {useFilterContext} from "../context/filterContext";
 
-const FilterBox = () => {
-	const {filters, updateFilter, resetFilter} = useFilterContext();
+const FilterBox = ({filters}) => {
+	// const {filters, updateFilter, resetFilter} = useFilterContext();
+	const {updateFilter, resetFilter} = useFilterContext();
 
 	return (
 		<div className='mt-6'>
