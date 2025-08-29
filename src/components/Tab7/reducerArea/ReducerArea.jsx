@@ -1,8 +1,10 @@
-import {atom} from "jotai";
-import {atomFamily} from "jotai/utils";
+import {useState, useReducer} from "react";
+import Button from "../../Common/Button";
+import FilterBox from "./FilterBox";
+import LayerFilter from "./LayerFilter";
 import uuid4 from "uuid4";
 
-export const filtersAtom = atom([
+const value = [
 	{
 		filterCategory: "카테고리",
 		id: uuid4(),
@@ -63,52 +65,37 @@ export const filtersAtom = atom([
 			{filterName: "무료배송", isSelected: false, id: uuid4()},
 		],
 	},
-]);
+];
 
-export const toggleFilterAtom = atom(null, (get, set, {groupId, itemId}) => {
-	const next = get(filtersAtom).map((filter) => {
-		if (filter.id !== groupId) return filter;
-
-		return {...filter, filterItems: filter.filterItems.map((item) => (item.id === itemId ? {...item, isSelected: !item.isSelected} : item))};
-	});
-
-	set(filtersAtom, next);
-});
-
-export const resetFilterAtom = atom(null, (get, set) => {
-	const next = get(filtersAtom).map((filter) => {
-		return {...filter, filterItems: filter.filterItems.map((item) => ({...item, isSelected: false}))};
-	});
-
-	set(filtersAtom, next);
-});
-
-export const filterItemAtomFamily = atomFamily((key) => {
-	const [groupId, itemId] = key.split(":");
-
-	return atom(
-		(get) => {
-			const group = get(filtersAtom).find((group) => group.id === groupId);
-			const item = group?.filterItems.find((item) => item.id === itemId);
-
-			return item;
-		},
-		(get, set, update) => {
-			const next = get(filtersAtom).map((g) => {
-				if (g.id !== groupId) return g;
-				return {
-					...g,
-					filterItems: g.filterItems.map((it) => {
-						if (it.id !== itemId) return it;
-
-						const nextItem = update(it);
-
-						return nextItem;
-					}),
-				};
+function reducer(filters, {type, groupId, itemId}) {
+	switch (type) {
+		case "UPDATE":
+			return filters.map((f) => {
+				return f.id === groupId ? {...f, filterItems: f.filterItems.map((item) => (item.id === itemId ? {...item, isSelected: !item.isSelected} : item))} : f;
 			});
+		case "RESET":
+			return filters.map((f) => ({...f, filterItems: f.filterItems.map((item) => ({...item, isSelected: false}))}));
+		default:
+			return state;
+	}
+}
 
-			set(filtersAtom, next);
-		}
+const ReducerArea = () => {
+	const [isOpen, setOpen] = useState(false);
+	const [filters, dispatch] = useReducer(reducer, value);
+
+	const onClose = () => {
+		setOpen((p) => !p);
+	};
+
+	return (
+		<div className='w-1/3'>
+			<p className='text-2xl py-4 mb-4 font-semibold border-b-1 border-gray-400'>reducerArea</p>
+			<Button text={"openLayer"} onClick={onClose} />
+			<FilterBox filters={filters} dispatch={dispatch} />
+			<LayerFilter isOpen={isOpen} onClose={onClose} filters={filters} dispatch={dispatch} />
+		</div>
 	);
-});
+};
+
+export default ReducerArea;

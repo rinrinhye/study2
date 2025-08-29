@@ -1,15 +1,13 @@
-import Button from "../../components/Common/Button";
-import FilterBox from "../../components/Tab7/FilterBox";
-import LayerFilter from "../../components/Tab7/LayerFilter";
-
-// const btnProps = {id, onClick, text, ref, isExpanded, ariaControls};
+import AtomArea from "../../components/Tab7/atomArea/AtomArea";
+import ContextArea from "../../components/Tab7/contextArea/ContextArea";
+import ReducerArea from "../../components/Tab7/reducerArea/ReducerArea";
 
 const Tab7 = () => {
 	return (
-		<div className='margin-0-auto'>
-			<Button text={"openLayer"} />
-			<FilterBox />
-			<LayerFilter />
+		<div className='px-6 flex gap-x-6'>
+			<AtomArea />
+			<ContextArea />
+			<ReducerArea />
 		</div>
 	);
 };

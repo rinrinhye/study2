@@ -1,8 +1,7 @@
-import {atom} from "jotai";
-import {atomFamily} from "jotai/utils";
+import {createContext, useContext, useState} from "react";
 import uuid4 from "uuid4";
 
-export const filtersAtom = atom([
+const value = [
 	{
 		filterCategory: "카테고리",
 		id: uuid4(),
@@ -63,52 +62,27 @@ export const filtersAtom = atom([
 			{filterName: "무료배송", isSelected: false, id: uuid4()},
 		],
 	},
-]);
+];
 
-export const toggleFilterAtom = atom(null, (get, set, {groupId, itemId}) => {
-	const next = get(filtersAtom).map((filter) => {
-		if (filter.id !== groupId) return filter;
+const FilterContext = createContext();
 
-		return {...filter, filterItems: filter.filterItems.map((item) => (item.id === itemId ? {...item, isSelected: !item.isSelected} : item))};
-	});
+export const FilterContextProvider = ({children}) => {
+	const [filters, setFilters] = useState(value);
 
-	set(filtersAtom, next);
-});
-
-export const resetFilterAtom = atom(null, (get, set) => {
-	const next = get(filtersAtom).map((filter) => {
-		return {...filter, filterItems: filter.filterItems.map((item) => ({...item, isSelected: false}))};
-	});
-
-	set(filtersAtom, next);
-});
-
-export const filterItemAtomFamily = atomFamily((key) => {
-	const [groupId, itemId] = key.split(":");
-
-	return atom(
-		(get) => {
-			const group = get(filtersAtom).find((group) => group.id === groupId);
-			const item = group?.filterItems.find((item) => item.id === itemId);
-
-			return item;
-		},
-		(get, set, update) => {
-			const next = get(filtersAtom).map((g) => {
-				if (g.id !== groupId) return g;
-				return {
-					...g,
-					filterItems: g.filterItems.map((it) => {
-						if (it.id !== itemId) return it;
-
-						const nextItem = update(it);
-
-						return nextItem;
-					}),
-				};
+	const updateFilter = ({groupId, itemId}) => {
+		setFilters((prev) => {
+			const updateFilters = prev.map((f) => {
+				return f.id === groupId ? {...f, filterItems: f.filterItems.map((item) => (item.id === itemId ? {...item, isSelected: !item.isSelected} : item))} : f;
 			});
+			return updateFilters;
+		});
+	};
 
-			set(filtersAtom, next);
-		}
-	);
-});
+	const resetFilter = () => {
+		setFilters((prev) => prev.map((f) => ({...f, filterItems: f.filterItems.map((item) => ({...item, isSelected: false}))})));
+	};
+
+	return <FilterContext.Provider value={{filters, updateFilter, resetFilter}}>{children}</FilterContext.Provider>;
+};
+
+export const useFilterContext = () => useContext(FilterContext);
