@@ -5,7 +5,7 @@ const LayerFilterItem = ({item, groupId}) => {
 	const {updateFilter} = useFilterContext();
 
 	return (
-		<li className='px-4 py-2 flex justify-between' key={item.id}>
+		<li className='px-4 py-2 flex justify-between'>
 			<label htmlFor={item.id} className='w-full cursor-pointer'>
 				{item.filterName}
 			</label>

@@ -67,16 +67,61 @@ const value = [
 	},
 ];
 
-function reducer(filters, {type, groupId, itemId}) {
-	switch (type) {
-		case "UPDATE":
-			return filters.map((f) => {
-				return f.id === groupId ? {...f, filterItems: f.filterItems.map((item) => (item.id === itemId ? {...item, isSelected: !item.isSelected} : item))} : f;
+// function reducer(filters, {type, groupId, itemId}) {
+// 	switch (type) {
+// 		case "UPDATE":
+// 			return filters.map((f) => {
+// 				return f.id === groupId ? {...f, filterItems: f.filterItems.map((item) => (item.id === itemId ? {...item, isSelected: !item.isSelected} : item))} : f;
+// 			});
+// 		case "RESET":
+// 			return filters.map((f) => ({...f, filterItems: f.filterItems.map((item) => ({...item, isSelected: false}))}));
+// 		default:
+// 			return filters;
+// 	}
+// }
+
+function reducer(filters, action) {
+	switch (action.type) {
+		case "UPDATE": {
+			const {groupId, itemId} = action;
+			return filters.map((g) => {
+				if (g.id !== groupId) return g;
+
+				let itemChanged = false;
+				const nextItems = g.filterItems.map((it) => {
+					if (it.id === itemId) {
+						itemChanged = true;
+						return {...it, isSelected: !it.isSelected};
+					}
+					return it; // 참조 보존
+				});
+
+				if (!itemChanged) return g; // 그룹도 참조 보존
+				return {...g, filterItems: nextItems};
 			});
-		case "RESET":
-			return filters.map((f) => ({...f, filterItems: f.filterItems.map((item) => ({...item, isSelected: false}))}));
+		}
+
+		case "RESET": {
+			let anyChanged = false;
+			const nextGroups = filters.map((g) => {
+				let itemChanged = false;
+				const items = g.filterItems.map((it) => {
+					if (it.isSelected) {
+						itemChanged = true;
+						return {...it, isSelected: false};
+					}
+					return it; // 이미 false면 참조 보존
+				});
+				if (!itemChanged) return g; // 이 그룹은 변경 없음 → 참조 보존
+				anyChanged = true;
+				return {...g, filterItems: items};
+			});
+
+			return anyChanged ? nextGroups : filters; // 전체가 그대로면 원본 배열 유지
+		}
+
 		default:
-			return state;
+			return filters;
 	}
 }
 
@@ -90,7 +135,7 @@ const ReducerArea = () => {
 
 	return (
 		<div className='w-1/3'>
-			<p className='text-2xl py-4 mb-4 font-semibold border-b-1 border-gray-400'>reducerArea</p>
+			<p className='text-2xl py-4 mb-4 font-semibold border-b border-gray-400'>reducerArea</p>
 			<Button text={"openLayer"} onClick={onClose} />
 			<FilterBox filters={filters} dispatch={dispatch} />
 			<LayerFilter isOpen={isOpen} onClose={onClose} filters={filters} dispatch={dispatch} />
