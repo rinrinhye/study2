@@ -1,7 +1,7 @@
 import {useAtomValue} from "jotai";
 import {filtersAtom} from "../atoms/filters";
 import LayerFilterItem from "./LayerFilterItem";
-import {useMemo, useState} from "react";
+import {useState} from "react";
 
 const LayerFilterList = () => {
 	const filters = useAtomValue(filtersAtom);

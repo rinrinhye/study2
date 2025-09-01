@@ -67,25 +67,6 @@ const value = [
 const FilterStateContext = createContext();
 const FilterActionContext = createContext();
 
-// export const FilterContextProvider = ({children}) => {
-// 	const [filters, setFilters] = useState(value);
-
-// 	const updateFilter = ({groupId, itemId}) => {
-// 		setFilters((prev) => {
-// 			const updateFilters = prev.map((f) => {
-// 				return f.id === groupId ? {...f, filterItems: f.filterItems.map((item) => (item.id === itemId ? {...item, isSelected: !item.isSelected} : item))} : f;
-// 			});
-// 			return updateFilters;
-// 		});
-// 	};
-
-// 	const resetFilter = () => {
-// 		setFilters((prev) => prev.map((f) => ({...f, filterItems: f.filterItems.map((item) => ({...item, isSelected: false}))})));
-// 	};
-
-// 	return <FilterContext.Provider value={{filters, updateFilter, resetFilter}}>{children}</FilterContext.Provider>;
-// };
-
 export const FilterContextProvider = ({children}) => {
 	const [filters, setFilters] = useState(value);
 
