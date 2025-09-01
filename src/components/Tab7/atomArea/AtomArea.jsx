@@ -13,7 +13,7 @@ const AtomArea = () => {
 
 	return (
 		<Provider>
-			<div className='w-1/3'>
+			<div>
 				<p className='text-2xl py-4 mb-4 font-semibold border-b border-gray-400'>atomtArea</p>
 				<Button text={"openLayer"} onClick={onClose} />
 				<FilterBox />
