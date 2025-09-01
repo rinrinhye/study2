@@ -1,8 +1,8 @@
 import React from "react";
-import {useFilterContext} from "../context/filterContext";
+import {useFilterActionContext} from "../context/filterContext";
 
 const LayerFilterItem = ({item, groupId}) => {
-	const {updateFilter} = useFilterContext();
+	const {updateFilter} = useFilterActionContext();
 
 	return (
 		<li className='px-4 py-2 flex justify-between'>

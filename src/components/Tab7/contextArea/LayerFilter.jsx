@@ -1,11 +1,11 @@
 import {useEffect, useRef} from "react";
 import {createPortal} from "react-dom";
 import LayerFilterList from "./LayerFilterList";
-import {useFilterContext} from "../context/filterContext";
+import {useFilterActionContext} from "../context/filterContext";
 
 const LayerFilter = ({isOpen, onClose, filters}) => {
 	const containerRef = useRef(null);
-	const {resetFilter} = useFilterContext();
+	const {resetFilter} = useFilterActionContext();
 
 	if (!containerRef.current && typeof document !== "undefined") {
 		containerRef.current = document.createElement("div");
@@ -34,7 +34,7 @@ const LayerFilter = ({isOpen, onClose, filters}) => {
 						X
 					</button>
 				</header>
-				<LayerFilterList filters={filters} />
+				<LayerFilterList />
 			</div>
 		</div>,
 		containerRef.current

@@ -1,4 +1,4 @@
-import {createContext, useContext, useState} from "react";
+import {createContext, useCallback, useContext, useMemo, useState} from "react";
 import uuid4 from "uuid4";
 
 const value = [
@@ -64,7 +64,8 @@ const value = [
 	},
 ];
 
-const FilterContext = createContext();
+const FilterStateContext = createContext();
+const FilterActionContext = createContext();
 
 // export const FilterContextProvider = ({children}) => {
 // 	const [filters, setFilters] = useState(value);
@@ -88,20 +89,28 @@ const FilterContext = createContext();
 export const FilterContextProvider = ({children}) => {
 	const [filters, setFilters] = useState(value);
 
-	const updateFilter = ({groupId, itemId}) => {
+	const updateFilter = useCallback(({groupId, itemId}) => {
 		setFilters((prev) => {
-			const updateFilters = prev.map((f) => {
+			const updateFilter = prev.map((f) => {
 				return f.id === groupId ? {...f, filterItems: f.filterItems.map((item) => (item.id === itemId ? {...item, isSelected: !item.isSelected} : item))} : f;
 			});
-			return updateFilters;
+
+			return updateFilter;
 		});
-	};
+	}, []);
 
-	const resetFilter = () => {
+	const resetFilter = useCallback(() => {
 		setFilters((prev) => prev.map((f) => ({...f, filterItems: f.filterItems.map((item) => ({...item, isSelected: false}))})));
-	};
+	}, []);
 
-	return <FilterContext.Provider value={{updateFilter, resetFilter}}>{typeof children === "function" ? children(filters) : children}</FilterContext.Provider>;
+	const actionsValue = useMemo(() => ({updateFilter, resetFilter}), [updateFilter, resetFilter]);
+
+	return (
+		<FilterStateContext.Provider value={{filters}}>
+			<FilterActionContext.Provider value={actionsValue}>{children}</FilterActionContext.Provider>
+		</FilterStateContext.Provider>
+	);
 };
 
-export const useFilterContext = () => useContext(FilterContext);
+export const useFilterActionContext = () => useContext(FilterActionContext);
+export const useFilterStateContext = () => useContext(FilterStateContext);

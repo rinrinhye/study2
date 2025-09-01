@@ -1,9 +1,9 @@
 import {useMemo, useState} from "react";
 import LayerFilterItem from "./LayerFilterItem";
-import {useFilterContext} from "../context/filterContext";
+import {useFilterStateContext} from "../context/filterContext";
 
-const LayerFilterList = ({filters}) => {
-	// const {filters} = useFilterContext();
+const LayerFilterList = () => {
+	const {filters} = useFilterStateContext();
 
 	const initialOpenMap = useMemo(() => {
 		const map = {};
