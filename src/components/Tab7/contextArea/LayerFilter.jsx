@@ -3,7 +3,7 @@ import {createPortal} from "react-dom";
 import LayerFilterList from "./LayerFilterList";
 import {useFilterActionContext} from "../context/filterContext";
 
-const LayerFilter = ({isOpen, onClose, filters}) => {
+const LayerFilter = ({isOpen, onClose}) => {
 	const containerRef = useRef(null);
 	const {resetFilter} = useFilterActionContext();
 

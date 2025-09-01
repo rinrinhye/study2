@@ -1,15 +1,12 @@
-import React, {useMemo, useState} from "react";
+import React, {useState} from "react";
 import LayerFilterItem from "./LayerFilterItem";
-import {useFilterStateContext} from "../context/filterContext";
 
 const LayerFilterList = ({filters}) => {
-	const initialOpenMap = useMemo(() => {
+	const [openMap, setOpenMap] = useState(() => {
 		const map = {};
 		for (const group of filters) map[group.id] = false;
 		return map;
-	}, [filters]);
-
-	const [openMap, setOpenMap] = useState(initialOpenMap);
+	});
 
 	return (
 		<div className='px-6'>

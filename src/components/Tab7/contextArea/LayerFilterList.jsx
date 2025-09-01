@@ -5,13 +5,17 @@ import {useFilterStateContext} from "../context/filterContext";
 const LayerFilterList = () => {
 	const {filters} = useFilterStateContext();
 
-	const initialOpenMap = useMemo(() => {
+	// const initialOpenMap = useMemo(() => {
+	// 	const map = {};
+	// 	for (const group of filters) map[group.id] = false;
+	// 	return map;
+	// }, [filters]);
+
+	const [openMap, setOpenMap] = useState(() => {
 		const map = {};
 		for (const group of filters) map[group.id] = false;
 		return map;
-	}, [filters]);
-
-	const [openMap, setOpenMap] = useState(initialOpenMap);
+	});
 
 	return (
 		<div className='px-6'>
