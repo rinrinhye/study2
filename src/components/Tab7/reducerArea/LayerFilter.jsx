@@ -23,9 +23,9 @@ const LayerFilter = ({isOpen, onClose, filters, dispatch}) => {
 	}, [isOpen]);
 
 	return createPortal(
-		<div className={`relative inset-0 w-full bg-amber-100 h-full`}>
+		<div className={`fixed inset-0 w-full h-full`}>
 			<div className='fixed inset-0 bg-black/60' onClick={onClose}></div>
-			<div className='fixed bg-white w-80 h-full right-0 top-0 overflow-y-auto'>
+			<div className='fixed flex flex-col bg-white w-80 h-full right-0 top-0'>
 				<header className='border-b border-gray-300 py-2 px-6 flex justify-between'>
 					<div className='flex gap-2'>
 						<h2 className='text-lg font-[500]'>필터 (Reducer)</h2>

@@ -13,7 +13,7 @@ const LayerFilterList = () => {
 	});
 
 	return (
-		<div className='px-6'>
+		<div className='px-6 pb-4 overflow-y-auto'>
 			{filters.map((filter) => (
 				<div key={filter.id}>
 					<button type='button' className='py-2 font-[500] w-full text-left' onClick={() => setOpenMap((prev) => ({...prev, [filter.id]: !prev[filter.id]}))} value={filter.filterCategory}>
