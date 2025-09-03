@@ -10,6 +10,7 @@ import Tab6 from "./pages/Tab6/Tab6.jsx";
 import "swiper/css";
 import "./styles/tailwind.css";
 import Tab7 from "./pages/Tab7/Tab7.jsx";
+import Tab8 from "./pages/Tab8/Tab8.jsx";
 
 // const router = createBrowserRouter([
 //   {
@@ -39,6 +40,7 @@ const tabs = [
 	{path: "tab5", element: <Tab5 />},
 	{path: "tab6", element: <Tab6 />},
 	{path: "tab7", element: <Tab7 />},
+	{path: "tab8", element: <Tab8 />},
 ];
 
 const router = createBrowserRouter([

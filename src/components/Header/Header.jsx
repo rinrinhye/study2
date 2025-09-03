@@ -8,6 +8,7 @@ const tabs = [
 	{title: "practice-5", params: "/tab5"},
 	{title: "practice-6", params: "/tab6"},
 	{title: "practice-7", params: "/tab7"},
+	{title: "practice-8", params: "/tab8"},
 ];
 
 export default function Header() {
