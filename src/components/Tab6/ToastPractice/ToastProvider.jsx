@@ -1,10 +1,10 @@
-import { createContext, useContext, useEffect, useRef, useState } from "react";
+import {createContext, useCallback, useContext, useEffect, useMemo, useRef, useState} from "react";
 import Toast from "./Toast";
-import { createPortal } from "react-dom";
+import {createPortal} from "react-dom";
 
 const ToastContext = createContext();
 
-export const ToastProvider = ({ children }) => {
+export const ToastProvider = ({children}) => {
 	const rootRef = useRef(null);
 
 	const [toasts, setToasts] = useState([]);
@@ -34,33 +34,31 @@ export const ToastProvider = ({ children }) => {
 		}
 	};
 
-	const addToast = (message) => {
+	const addToast = useCallback((message) => {
 		createRoot();
-		const newToast = { id: Date.now(), message };
+		const newToast = {id: Date.now(), message};
 		setToasts((prev) => [...prev, newToast]);
-	};
+	}, []);
 
-	const closeToast = (id) => {
+	const closeToast = useCallback((id) => {
 		setToasts((prev) => prev.filter((p) => p.id !== id));
-	};
+	}, []);
 
-	const clearToasts = () => {
+	const clearToasts = useCallback(() => {
 		setToasts([]);
-	};
+	}, []);
+
+	const value = useMemo(() => ({addToast, clearToasts}), [addToast, clearToasts]);
+
 	return (
-		<ToastContext.Provider value={{ addToast, clearToasts }}>
+		<ToastContext.Provider value={value}>
 			{children}
 
 			{rootRef.current &&
 				createPortal(
 					<div className='fixed top-8 right-8 flex flex-col gap-4 z-200 items-end'>
 						{toasts.map((t) => (
-							<Toast
-								key={t.id}
-								id={t.id}
-								message={t.message}
-								onClose={() => closeToast(t.id)}
-							/>
+							<Toast key={t.id} id={t.id} message={t.message} onClose={() => closeToast(t.id)} />
 						))}
 					</div>,
 					rootRef.current

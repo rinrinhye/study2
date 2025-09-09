@@ -1,6 +1,6 @@
 import AgreeAllCheckbox from "../../components/Tab3/AgreeAllCheckbox";
 import ConsentList from "../../components/Tab3/ConsentList";
-import { useEffect, useRef, useState } from "react";
+import {useCallback, useEffect, useMemo, useRef, useState} from "react";
 
 const agreementList = [
 	{
@@ -42,7 +42,7 @@ const agreementList = [
 
 export default function Tab3() {
 	const [agreements, setAgreements] = useState(agreementList);
-	const [isAllAgreed, setIsAllAgreed] = useState(false);
+	// const [isAllAgreed, setIsAllAgreed] = useState(false);
 	const [showHeader, setShowHeader] = useState(true);
 	// const [lastY, setLastY] = useState(0);
 	const lastYRef = useRef(0);
@@ -50,13 +50,13 @@ export default function Tab3() {
 	const triggerRef = useRef(null);
 	const headerHeight = 74;
 
-	const handleAgreeAll = () => {
-		setIsAllAgreed((prev) => !prev);
+	// ✅ agreements로부터 항상 계산 가능한 값이므로 useMemo로 파생값 처리
+	const isAllAgreed = useMemo(() => agreements.every((i) => i.checked), [agreements]);
 
-		setAgreements(
-			agreements.map((item) => ({ ...item, checked: !isAllAgreed }))
-		);
-	};
+	const handleAgreeAll = useCallback(() => {
+		// agreements 상태를 토글
+		setAgreements(agreements.map((item) => ({...item, checked: !isAllAgreed})));
+	}, [agreements, isAllAgreed]);
 
 	// --------------------------------------------------------------------------
 
@@ -92,22 +92,15 @@ export default function Tab3() {
 
 	// 방법 3. 1번 + 2번 혼합
 	const handleCheckbox = (inputId) => {
-		const updated = agreements.map((item) =>
-			item.inputId === inputId ? { ...item, checked: !item.checked } : item
-		);
-
+		const updated = agreements.map((item) => (item.inputId === inputId ? {...item, checked: !item.checked} : item));
 		setAgreements(updated);
-
-		// 즉시 업데이트
-		const allChecked = updated.every((item) => item.checked);
-		setIsAllAgreed(allChecked);
 	};
 
-	// 안전망 역할의 useEffect
-	useEffect(() => {
-		const allChecked = agreements.every((item) => item.checked);
-		setIsAllAgreed(allChecked);
-	}, [agreements]);
+	// 안전망 역할의 useEffect 3차스터디 3회차 주석처리
+	// useEffect(() => {
+	// 	const allChecked = agreements.every((item) => item.checked);
+	// 	setIsAllAgreed(allChecked);
+	// }, [agreements]);
 
 	// --------------------------------------------------------------------------
 
@@ -181,19 +174,13 @@ export default function Tab3() {
 			<div
 				ref={triggerRef}
 				className={`w-full h-12 bg-blue-500 sticky top-0 shadow
-    transition-transform duration-200 ease-in-out ${
-			showHeader ? "translate-y-0" : "-translate-y-full"
-		}`}
-			></div>
-			<div className="w-lg mx-auto mt-10">
-				<h2 className="mb-4">예약 동의사항</h2>
-				<AgreeAllCheckbox
-					handleAgreeAll={handleAgreeAll}
-					isAllAgreed={isAllAgreed}
-				/>
+    transition-transform duration-200 ease-in-out ${showHeader ? "translate-y-0" : "-translate-y-full"}`}></div>
+			<div className='w-lg mx-auto mt-10'>
+				<h2 className='mb-4'>예약 동의사항</h2>
+				<AgreeAllCheckbox handleAgreeAll={handleAgreeAll} isAllAgreed={isAllAgreed} />
 				<ConsentList agreements={agreements} handleCheckbox={handleCheckbox} />
 			</div>
-			<div className="h-[3000px]"></div>
+			<div className='h-[3000px]'></div>
 		</>
 	);
 }
