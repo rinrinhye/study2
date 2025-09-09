@@ -1,10 +1,10 @@
-import {Suspense, use, useMemo} from "react";
+import {use} from "react";
 import CategoryList from "../../components/Tab1/CategoryList";
 import "./category-slide.css";
 import {useSearchParams} from "react-router";
 import ProductList from "../../components/Tab1/ProductList";
 
-const dataPromise = Promise.all([fetch("/tab1/categoryData.json").then((r) => r.json()), fetch("/tab1/itemData.json").then((r) => r.json())]).then(([categoryRes, productRes]) => ({
+const dataPromise = Promise.all([fetch("/tab1/categoryData.json").then((r) => r.json()), fetch("/tab1/itemData.json").then((r) => r.json()), new Promise((resolve) => setTimeout(resolve, 3000))]).then(([categoryRes, productRes]) => ({
 	categories: categoryRes.categoryData,
 	products: productRes,
 }));
