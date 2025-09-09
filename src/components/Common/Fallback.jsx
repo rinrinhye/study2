@@ -1,6 +1,6 @@
-import React, {useEffect} from "react";
+import {useEffect} from "react";
 
-export default function GlobalErrorFallback(error, reset) {
+export default function Fallback(error, reset) {
 	// 에러 상태에서 자동 3초 기다린 뒤 reset
 	useEffect(() => {
 		const t = setTimeout(() => reset(), 3000);
