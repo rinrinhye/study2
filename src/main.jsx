@@ -11,6 +11,9 @@ import "swiper/css";
 import "./styles/tailwind.css";
 import Tab7 from "./pages/Tab7/Tab7.jsx";
 import Tab8 from "./pages/Tab8/Tab8.jsx";
+import {Suspense} from "react";
+import Fallback from "./components/Common/Fallback.jsx";
+import {ErrorBoundary} from "./components/Common/ErrorBoundary.jsx";
 
 // const router = createBrowserRouter([
 //   {
@@ -33,7 +36,14 @@ import Tab8 from "./pages/Tab8/Tab8.jsx";
 // ]);
 
 const tabs = [
-	{path: "tab1", element: <Tab1 />},
+	{
+		path: "tab1",
+		element: (
+			<Suspense fallback={<div>로딩딩</div>}>
+				<Tab1 />
+			</Suspense>
+		),
+	},
 	{path: "tab2", element: <Tab2 />},
 	{path: "tab3", element: <Tab3 />},
 	{path: "tab4", element: <Tab4 />},
@@ -55,4 +65,8 @@ const router = createBrowserRouter([
 	},
 ]);
 
-createRoot(document.getElementById("root")).render(<RouterProvider router={router} />);
+createRoot(document.getElementById("root")).render(
+	<ErrorBoundary fallback={(error, reset) => <Fallback error={error} reset={reset} />}>
+		<RouterProvider router={router} />
+	</ErrorBoundary>
+);
