@@ -1,3 +1,5 @@
+import React from "react";
+
 const AgreeAllCheckbox = ({handleAgreeAll, isAllAgreed}) => {
 	return (
 		<div className='mb-1 text-sm'>

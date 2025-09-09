@@ -93,10 +93,18 @@ export default function Tab3() {
 	// --------------------------------------------------------------------------
 
 	// 방법 3. 1번 + 2번 혼합
-	const handleCheckbox = (inputId) => {
-		const updated = agreements.map((item) => (item.inputId === inputId ? {...item, checked: !item.checked} : item));
-		setAgreements(updated);
-	};
+	const handleCheckbox = useCallback((inputId) => {
+		setAgreements((prev) => {
+			let changed = false;
+			const next = prev.map((i) => {
+				if (i.inputId !== inputId) return i;
+				changed = true;
+				return {...i, checked: !i.checked};
+			});
+			// id가 없으면 동일 참조 반환 → 불필요한 리렌더 방지
+			return changed ? next : prev;
+		});
+	}, []);
 
 	// 안전망 역할의 useEffect 3차스터디 3회차 주석처리
 	// useEffect(() => {

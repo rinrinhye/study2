@@ -1,17 +1,14 @@
+import React from "react";
 import ConsentItem from "./ConsentItem";
 
-const ConsentList = ({ agreements, handleCheckbox }) => {
+const ConsentList = ({agreements, handleCheckbox}) => {
 	return (
 		<ul>
 			{agreements.map((item) => (
-				<ConsentItem
-					{...item}
-					key={item.inputId}
-					handleCheckbox={handleCheckbox}
-				/>
+				<ConsentItem {...item} key={item.inputId} handleCheckbox={handleCheckbox} />
 			))}
 		</ul>
 	);
 };
 
-export default ConsentList;
+export default React.memo(ConsentList);
