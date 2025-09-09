@@ -76,21 +76,11 @@ export class ErrorBoundary extends React.Component {
 	 * - 화면에 무엇을 그릴지 반환하는 필수 메서드. (부수효과를 두지 않는 것이 원칙)
 	 *
 	 * 분기:
-	 * - 에러 상태(hasError=true)라면:
-	 *   - props.fallback이 "함수"인 경우: (error, reset) 서명으로 호출하여 반환값(JSX)을 그린다.
-	 *     * reset: 내부적으로 setState를 호출하여 에러 상태를 해제하는 함수.
-	 *             사용자는 fallback UI에서 버튼 onClick 등으로 reset()을 호출해 복구할 수 있다.
-	 *   - props.fallback이 "JSX 엘리먼트"인 경우: 그대로 반환한다.
-	 *
+	 * - 에러 상태(hasError=true)라면: fallback 렌더링,
 	 * - 에러가 없으면: 자식(children)을 그대로 렌더링한다.
 	 */
 	render() {
 		if (this.state.hasError) {
-			if (typeof this.props.fallback === "function") {
-				// reset 함수: 에러 상태를 초기화 → 정상 children 재렌더
-				const reset = () => this.setState({hasError: false, error: null});
-				return this.props.fallback(this.state.error, reset);
-			}
 			return this.props.fallback;
 		}
 		return this.props.children;
