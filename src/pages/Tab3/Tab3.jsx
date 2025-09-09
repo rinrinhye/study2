@@ -54,9 +54,11 @@ export default function Tab3() {
 	const isAllAgreed = useMemo(() => agreements.every((i) => i.checked), [agreements]);
 
 	const handleAgreeAll = useCallback(() => {
-		// agreements 상태를 토글
-		setAgreements(agreements.map((item) => ({...item, checked: !isAllAgreed})));
-	}, [agreements, isAllAgreed]);
+		setAgreements((prev) => {
+			const allChecked = prev.every((i) => i.checked);
+			return prev.map((i) => ({...i, checked: !allChecked}));
+		});
+	}, []);
 
 	// --------------------------------------------------------------------------
 
